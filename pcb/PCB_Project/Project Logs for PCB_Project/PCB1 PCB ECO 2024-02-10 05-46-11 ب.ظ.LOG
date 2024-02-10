@@ -1,0 +1,239 @@
+Added Component: Designator=Buzz1(HDR1X2)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=D1(LEDRD254W57D500H1070)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "L08R5000Q1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=IC1(ht66f002)
+Add component. Clean all parameters for all variants
+Added Component: Designator=IC2(ht66f002)
+Add component. Clean all parameters for all variants
+Added Component: Designator=IC3(VS838)
+Add component. Clean all parameters for all variants
+Added Component: Designator=P1(HDR1X4)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=P2(HDR1X2)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=P3(HDR1X2)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=P4(HDR1X4)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=Q1(c945)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Q2(pmbt8550)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Q3(pmbt8550)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Q4(pmbt8550)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Q5(pmbt8550)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Q6(MMBT8050)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Q7(MMBT8050)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Q8(MMBT8050)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Q9(MMBT8050)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Q10(MMBT8050)
+Add component. Clean all parameters for all variants
+Added Component: Designator=S1(SW_TS04-66-95-BK-100-SMT)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TS04-66-95-BK-100-SMT/CUI+Devices/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "CUI_purchase_URL"; Value = "https://www.cuidevices.com/product/switches/tactile-switches/ts04-series?utm_source=snapeda.com&utm_medium=referral&utm_campaign=snapedaBOM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "CUI Devices"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TS04-66-95-BK-100-SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TS04-66-95-BK-100-SMT/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TS04-66-95-BK-100-SMT/CUI+Devices/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=S2(SW_TS04-66-95-BK-100-SMT)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TS04-66-95-BK-100-SMT/CUI+Devices/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "CUI_purchase_URL"; Value = "https://www.cuidevices.com/product/switches/tactile-switches/ts04-series?utm_source=snapeda.com&utm_medium=referral&utm_campaign=snapedaBOM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "CUI Devices"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TS04-66-95-BK-100-SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TS04-66-95-BK-100-SMT/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TS04-66-95-BK-100-SMT/CUI+Devices/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=S3(SW_TS04-66-95-BK-100-SMT)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TS04-66-95-BK-100-SMT/CUI+Devices/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "CUI_purchase_URL"; Value = "https://www.cuidevices.com/product/switches/tactile-switches/ts04-series?utm_source=snapeda.com&utm_medium=referral&utm_campaign=snapedaBOM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "CUI Devices"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TS04-66-95-BK-100-SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TS04-66-95-BK-100-SMT/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TS04-66-95-BK-100-SMT/CUI+Devices/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=S4(SW_TS04-66-95-BK-100-SMT)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TS04-66-95-BK-100-SMT/CUI+Devices/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "CUI_purchase_URL"; Value = "https://www.cuidevices.com/product/switches/tactile-switches/ts04-series?utm_source=snapeda.com&utm_medium=referral&utm_campaign=snapedaBOM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "CUI Devices"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TS04-66-95-BK-100-SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TS04-66-95-BK-100-SMT/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TS04-66-95-BK-100-SMT/CUI+Devices/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=S5(SW_TS04-66-95-BK-100-SMT)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TS04-66-95-BK-100-SMT/CUI+Devices/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "CUI_purchase_URL"; Value = "https://www.cuidevices.com/product/switches/tactile-switches/ts04-series?utm_source=snapeda.com&utm_medium=referral&utm_campaign=snapedaBOM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "CUI Devices"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TS04-66-95-BK-100-SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TS04-66-95-BK-100-SMT/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TS04-66-95-BK-100-SMT/CUI+Devices/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=C1 Pin=IC2-7
+Added Pin To Net: NetName=C1 Pin=P4-4
+Added Net: Name=C1
+Added Pin To Net: NetName=C2 Pin=IC2-6
+Added Net: Name=C2
+Added Pin To Net: NetName=C3 Pin=IC2-4
+Added Pin To Net: NetName=C3 Pin=P4-3
+Added Net: Name=C3
+Added Pin To Net: NetName=C4 Pin=IC2-2
+Added Net: Name=C4
+Added Pin To Net: NetName=C5 Pin=IC2-3
+Added Net: Name=C5
+Added Net: Name=GND2
+Added Pin To Net: NetName=ICPCK Pin=IC1-4
+Added Pin To Net: NetName=ICPCK Pin=P1-3
+Added Pin To Net: NetName=ICPCK Pin=S2-1
+Added Pin To Net: NetName=ICPCK Pin=S2-3
+Added Net: Name=ICPCK
+Added Pin To Net: NetName=ICPDA Pin=IC1-7
+Added Pin To Net: NetName=ICPDA Pin=P1-4
+Added Pin To Net: NetName=ICPDA Pin=S5-1
+Added Pin To Net: NetName=ICPDA Pin=S5-3
+Added Net: Name=ICPDA
+Added Pin To Net: NetName=key_1 Pin=IC1-2
+Added Pin To Net: NetName=key_1 Pin=S1-1
+Added Pin To Net: NetName=key_1 Pin=S1-3
+Added Net: Name=key_1
+Added Pin To Net: NetName=key_3 Pin=IC1-6
+Added Pin To Net: NetName=key_3 Pin=S3-1
+Added Pin To Net: NetName=key_3 Pin=S3-3
+Added Net: Name=key_3
+Added Pin To Net: NetName=key_4 Pin=IC1-3
+Added Pin To Net: NetName=key_4 Pin=S4-1
+Added Pin To Net: NetName=key_4 Pin=S4-3
+Added Net: Name=key_4
+Added Pin To Net: NetName=NetBuzz1_2 Pin=Buzz1-2
+Added Pin To Net: NetName=NetBuzz1_2 Pin=Q6-3
+Added Net: Name=NetBuzz1_2
+Added Pin To Net: NetName=NetD1_C Pin=D1-C
+Added Pin To Net: NetName=NetD1_C Pin=Q1-C
+Added Net: Name=NetD1_C
+Added Pin To Net: NetName=NetIC1_5 Pin=IC1-5
+Added Net: Name=NetIC1_5
+Added Pin To Net: NetName=NetP2_1 Pin=P2-1
+Added Pin To Net: NetName=NetP2_1 Pin=Q2-3
+Added Pin To Net: NetName=NetP2_1 Pin=Q7-3
+Added Net: Name=NetP2_1
+Added Pin To Net: NetName=NetP2_2 Pin=P2-2
+Added Pin To Net: NetName=NetP2_2 Pin=Q3-3
+Added Pin To Net: NetName=NetP2_2 Pin=Q8-3
+Added Net: Name=NetP2_2
+Added Pin To Net: NetName=NetP3_1 Pin=P3-1
+Added Pin To Net: NetName=NetP3_1 Pin=Q4-3
+Added Pin To Net: NetName=NetP3_1 Pin=Q9-3
+Added Net: Name=NetP3_1
+Added Pin To Net: NetName=NetP3_2 Pin=P3-2
+Added Pin To Net: NetName=NetP3_2 Pin=Q5-3
+Added Pin To Net: NetName=NetP3_2 Pin=Q10-3
+Added Net: Name=NetP3_2
+Added Pin To Net: NetName=NetQ1_B Pin=Q1-B
+Added Net: Name=NetQ1_B
+Added Pin To Net: NetName=NetQ2_1 Pin=Q2-1
+Added Net: Name=NetQ2_1
+Added Pin To Net: NetName=NetQ3_1 Pin=Q3-1
+Added Net: Name=NetQ3_1
+Added Pin To Net: NetName=NetQ4_1 Pin=Q4-1
+Added Net: Name=NetQ4_1
+Added Pin To Net: NetName=NetQ5_1 Pin=Q5-1
+Added Net: Name=NetQ5_1
+Added Pin To Net: NetName=NetQ6_1 Pin=Q6-1
+Added Net: Name=NetQ6_1
+Added Pin To Net: NetName=NetQ7_1 Pin=Q7-1
+Added Net: Name=NetQ7_1
+Added Pin To Net: NetName=NetQ8_1 Pin=Q8-1
+Added Net: Name=NetQ8_1
+Added Pin To Net: NetName=NetQ9_1 Pin=Q9-1
+Added Net: Name=NetQ9_1
+Added Pin To Net: NetName=NetQ10_1 Pin=Q10-1
+Added Net: Name=NetQ10_1
+Added Pin To Net: NetName=SIG Pin=IC2-5
+Added Pin To Net: NetName=SIG Pin=IC3-1
+Added Net: Name=SIG
+Added Pin To Net: NetName=V++ Pin=Buzz1-1
+Added Pin To Net: NetName=V++ Pin=IC2-1
+Added Pin To Net: NetName=V++ Pin=IC3-3
+Added Pin To Net: NetName=V++ Pin=P4-1
+Added Pin To Net: NetName=V++ Pin=Q2-2
+Added Pin To Net: NetName=V++ Pin=Q3-2
+Added Pin To Net: NetName=V++ Pin=Q4-2
+Added Pin To Net: NetName=V++ Pin=Q5-2
+Added Net: Name=V++
+Added Pin To Net: NetName=V+ Pin=D1-A
+Added Pin To Net: NetName=V+ Pin=IC1-1
+Added Pin To Net: NetName=V+ Pin=P1-1
+Added Net: Name=V+
+Added Pin To Net: NetName=V-- Pin=IC2-8
+Added Pin To Net: NetName=V-- Pin=IC3-2
+Added Pin To Net: NetName=V-- Pin=P4-2
+Added Pin To Net: NetName=V-- Pin=Q6-2
+Added Pin To Net: NetName=V-- Pin=Q7-2
+Added Pin To Net: NetName=V-- Pin=Q8-2
+Added Pin To Net: NetName=V-- Pin=Q9-2
+Added Pin To Net: NetName=V-- Pin=Q10-2
+Added Net: Name=V--
+Added Pin To Net: NetName=V- Pin=IC1-8
+Added Pin To Net: NetName=V- Pin=P1-2
+Added Pin To Net: NetName=V- Pin=Q1-E
+Added Pin To Net: NetName=V- Pin=S1-2
+Added Pin To Net: NetName=V- Pin=S1-4
+Added Pin To Net: NetName=V- Pin=S2-2
+Added Pin To Net: NetName=V- Pin=S2-4
+Added Pin To Net: NetName=V- Pin=S3-2
+Added Pin To Net: NetName=V- Pin=S3-4
+Added Pin To Net: NetName=V- Pin=S4-2
+Added Pin To Net: NetName=V- Pin=S4-4
+Added Pin To Net: NetName=V- Pin=S5-2
+Added Pin To Net: NetName=V- Pin=S5-4
+Added Net: Name=V-
+Added Class: Name=Sheet1
+Added Room: Name=Sheet1
