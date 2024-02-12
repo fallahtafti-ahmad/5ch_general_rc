@@ -1,0 +1,7 @@
+Added Component: Designator=R8(RESC2012X06N-805)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "value"; Value = "1k"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetQ8_1 Pin=R8-1
+Added Pin To Net: NetName=C2 Pin=R8-2
+Added Member To Class: ClassName=Sheet1 Member=Component R8 Resistor
+Added Room: Name=Sheet1

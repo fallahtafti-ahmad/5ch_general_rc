@@ -1,0 +1,20 @@
+Change Component Footprint: Designator=S1 Old Footprint=SW_TS02-66-43-BK-160-SCR-D New Footprint=SW_TS04-66-95-BK-100-SMT
+Change Component Footprint: Designator=S2 Old Footprint=SW_TS02-66-43-BK-160-SCR-D New Footprint=SW_TS04-66-95-BK-100-SMT
+Change Component Footprint: Designator=S3 Old Footprint=SW_TS02-66-43-BK-160-SCR-D New Footprint=SW_TS04-66-95-BK-100-SMT
+Change Component Footprint: Designator=S4 Old Footprint=SW_TS02-66-43-BK-160-SCR-D New Footprint=SW_TS04-66-95-BK-100-SMT
+Change Component Footprint: Designator=S5 Old Footprint=SW_TS02-66-43-BK-160-SCR-D New Footprint=SW_TS04-66-95-BK-100-SMT
+Added Component: Designator=S6(SW_TL2285OA)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TL2230EEF100/E-Switch/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "E-Switch"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TL2230EEF100"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TL2230EEF100/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TL2230EEF100/E-Switch/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND2 Pin=S6-1
+Added Pin To Net: NetName=V-- Pin=S6-2
+Added Member To Class: ClassName=Sheet1 Member=Component S6 TL2230EEF100
+Added Room: Name=Sheet1
