@@ -33,10 +33,11 @@
 
 #include "HT8_MCU_IP_SEL.h"
 
-#define f _pa6
-#define b _pa7
-#define h _pa1
-#define d _pa5
+#define fl _pa6
+#define h _pa7
+#define fr _pa0
+#define br _pa1
+#define bl _pa5
 bool stop;
 int r;
 u16	g_nCCRA ;		
@@ -62,12 +63,15 @@ void main()
 	_pawu6=1;
 	_pawu7=1;
 	_pawu1=1;
+	_pawu0=1;
 	_pac6=1;
 	_papu6=1;
 	_pac7=1;
 	_papu7=1;
 	_pac1=1;
+	_pac0=1;
 	_papu1=1;
+	_papu0=1;
 	_pac5=1;
 	_papu5=1;
 	/* initialization STM IP */
@@ -197,14 +201,14 @@ void main()
 		*/
 		send_sink();
 		send_sink();
-		if (d){
+		if (!fr){
 			send_one();
 			//send_zero();
 			}else{
 				send_zero();
 				//send_one();
 				}
-		if (!f){
+		if (!fl){
 			stop=0;
 			r=0;
 			send_one();
@@ -213,7 +217,16 @@ void main()
 				send_zero();
 				//send_one();
 				}
-		if (!b){
+		if (!br){
+			stop=0;
+			r=0;
+			send_one();
+			//send_zero();
+			}else{
+				send_zero();
+				//send_one();
+				}
+		if (!bl){
 			stop=0;
 			r=0;
 			send_one();
@@ -233,9 +246,7 @@ void main()
 				}
 		
 		_delay(200000);
-		if (d){
-			_delay(40000);
-		}
+		
 		
 		if(stop){
 		if(r<3){
