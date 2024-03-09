@@ -1,0 +1,55 @@
+"File: HT8_SYS_Clock.c  Holtek Cross-Assembler  Version 3.00      Page 1
+
+
+
+;  42: {
+  42  0000              __stm0ah EQU [02dH]
+  42  0000              __stm0al EQU [02cH]
+  42  0000              __stm0dh EQU [02bH]
+  42  0000              __stm0dl EQU [02aH]
+  42  0000              __stm0c1 EQU [029H]
+  42  0000              __stm0c0 EQU [028H]
+  42  0000              __pasr EQU [026H]
+  42  0000              __rstc EQU [025H]
+  42  0000              __sadc2 EQU [024H]
+  42  0000              __sadc1 EQU [023H]
+  42  0000              __sadc0 EQU [022H]
+  42  0000              __sadoh EQU [021H]
+  42  0000              __sadol EQU [020H]
+  42  0000              __eed EQU [01fH]
+  42  0000              __eea EQU [01eH]
+  42  0000              __smod1 EQU [01cH]
+  42  0000              __tbc EQU [01bH]
+  42  0000              __wdtc EQU [019H]
+  42  0000              __ifs0 EQU [018H]
+  42  0000              __pawu EQU [017H]
+  42  0000              __papu EQU [016H]
+  42  0000              __pac EQU [015H]
+  42  0000              __pa EQU [014H]
+  42  0000              __mfi0 EQU [011H]
+  42  0000              __intc1 EQU [0fH]
+  42  0000              __intc0 EQU [0eH]
+  42  0000              __integ EQU [0dH]
+  42  0000              __smod EQU [0bH]
+  42  0000              __status EQU [0aH]
+  42  0000              __tblh EQU [08H]
+  42  0000              __tblp EQU [07H]
+  42  0000              __pcl EQU [06H]
+  42  0000              __acc EQU [05H]
+  42  0000              __bp EQU [04H]
+  42  0000              __mp1 EQU [03H]
+  42  0000              __iar1 EQU [02H]
+  42  0000              __mp0 EQU [01H]
+  42  0000              __iar0 EQU [00H]
+  42  0000              @SysClockDivision_Init .SECTION 'CODE'
+  42  0000              PUBLIC _SysClockDivision_Init
+  42  0000              _SysClockDivision_Init PROC
+
+;  44: 	_hlclk = 1;										//set Fsys as FH
+  44  0000  300B        SET [0BH].0
+  44  0001              L5:
+  44  0001  0003        RET
+  44  0002              _SysClockDivision_Init ENDP
+
+
+        0 Errors

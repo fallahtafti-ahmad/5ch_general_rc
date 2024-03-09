@@ -1,0 +1,1220 @@
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 1
+
+
+
+;  24: {
+  24  0000              __stm0ah EQU [02dH]
+  24  0000              __stm0al EQU [02cH]
+  24  0000              __stm0dh EQU [02bH]
+  24  0000              __stm0dl EQU [02aH]
+  24  0000              __stm0c1 EQU [029H]
+  24  0000              __stm0c0 EQU [028H]
+  24  0000              __pasr EQU [026H]
+  24  0000              __rstc EQU [025H]
+  24  0000              __sadc2 EQU [024H]
+  24  0000              __sadc1 EQU [023H]
+  24  0000              __sadc0 EQU [022H]
+  24  0000              __sadoh EQU [021H]
+  24  0000              __sadol EQU [020H]
+  24  0000              __eed EQU [01fH]
+  24  0000              __eea EQU [01eH]
+  24  0000              __smod1 EQU [01cH]
+  24  0000              __tbc EQU [01bH]
+  24  0000              __wdtc EQU [019H]
+  24  0000              __ifs0 EQU [018H]
+  24  0000              __pawu EQU [017H]
+  24  0000              __papu EQU [016H]
+  24  0000              __pac EQU [015H]
+  24  0000              __pa EQU [014H]
+  24  0000              __mfi0 EQU [011H]
+  24  0000              __intc1 EQU [0fH]
+  24  0000              __intc0 EQU [0eH]
+  24  0000              __integ EQU [0dH]
+  24  0000              __smod EQU [0bH]
+  24  0000              __status EQU [0aH]
+  24  0000              __tblh EQU [08H]
+  24  0000              __tblp EQU [07H]
+  24  0000              __pcl EQU [06H]
+  24  0000              __acc EQU [05H]
+  24  0000              __bp EQU [04H]
+  24  0000              __mp1 EQU [03H]
+  24  0000              __iar1 EQU [02H]
+  24  0000              __mp0 EQU [01H]
+  24  0000              __iar0 EQU [00H]
+  24  0000              @@INT_ISR .SECTION AT 04H 'CODE'
+  24  0000  2800     R  JMP _INT_ISR
+  24  0000              @INT_ISR .SECTION 'CODE'
+  24  0000              _INT_ISR PROC
+  24  0000  0080     E  MOV V1A,A
+  24  0001  070A        MOV A,[0AH]
+  24  0002  0080     E  MOV V1S,A
+  24  0003  0703        MOV A,[03H]
+  24  0004  0080     E  MOV V1MP1,A
+  24  0005  0704        MOV A,[04H]
+  24  0006  0080     E  MOV V1BP,A
+
+;  25: 	cnt=0;
+  25  0007  0F00     R  MOV A,BANK _cnt
+  25  0008  0084        MOV [04H],A
+  25  0009  0F00     R  MOV A,OFFSET _cnt
+  25  000A  0083        MOV [03H],A
+  25  000B  1F02        CLR [02H]
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 2 
+
+  25  000C  1483        INC [03H]
+  25  000D  1F02        CLR [02H]
+
+;  26: 	if(!sig){
+  26  000E  3D14        SZ [014H].2
+  26  000F  2800     R  JMP L6
+
+;  27: 		STM_DISABLE();
+  27  0010  35A8        CLR [028H].3
+
+;  28: 		STM_ENABLE();
+  28  0011  31A8        SET [028H].3
+
+;  29: 		STM_RUN();
+  29  0012  37A8        CLR [028H].7
+
+;  30: 		}else{
+  30  0013  2800     R  JMP L7
+  30  0014              L6:
+
+;  32: 			STM_PAUSE();
+  32  0014  33A8        SET [028H].7
+
+;  33: 			t1=STM_GET_COUNTER_VALUE();
+  33  0015  072B        MOV A,__stm0dh
+  33  0016  0080     R  MOV b0_1[1],A
+  33  0017  1F00     R  CLR b0_1
+  33  0018  072A        MOV A,__stm0dl
+  33  0019  0080     R  MOV b1_1,A
+  33  001A  1F00     R  CLR b1_1[1]
+  33  001B  0700     R  MOV A,b0_1
+  33  001C  0500     R  OR A,b1_1
+  33  001D  0080     R  MOV b0_1,A
+  33  001E  0700     R  MOV A,b0_1[1]
+  33  001F  0500     R  OR A,b1_1[1]
+  33  0020  0080     R  MOV b0_1[1],A
+  33  0021  0F00     R  MOV A,BANK _t1
+  33  0022  0084        MOV [04H],A
+  33  0023  0F00     R  MOV A,OFFSET _t1
+  33  0024  0083        MOV [03H],A
+  33  0025  0700     R  MOV A,b0_1
+  33  0026  0082        MOV [02H],A
+  33  0027  0700     R  MOV A,b0_1[1]
+  33  0028  1483        INC [03H]
+  33  0029  0082        MOV [02H],A
+
+;  34: 			STM_DISABLE();
+  34  002A  35A8        CLR [028H].3
+
+;  35: 			STM_ENABLE();
+  35  002B  31A8        SET [028H].3
+
+;  36: 			if(t1>768){
+  36  002C  0F00     R  MOV A,BANK _t1
+  36  002D  0084        MOV [04H],A
+  36  002E  0F00     R  MOV A,OFFSET _t1
+  36  002F  0083        MOV [03H],A
+  36  0030  0702        MOV A,[02H]
+  36  0031  0080     R  MOV b0_1,A
+  36  0032  1483        INC [03H]
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 3 
+
+  36  0033  0702        MOV A,[02H]
+  36  0034  0080     R  MOV b0_1[1],A
+  36  0035  0F80        MOV A,80h
+  36  0036  0400     R  XOR A,b0_1[1]
+  36  0037  0A83        SUB A,083h
+  36  0038  380A        SNZ [0AH].0
+  36  0039  2800     R  JMP L8
+  36  003A  390A        SNZ [0AH].2
+  36  003B  2800     R  JMP L43
+  36  003C  0F00        MOV A,00h
+  36  003D  0200     R  SUB A,b0_1
+  36  003E  3C0A        SZ [0AH].0
+  36  003F  2800     R  JMP L8
+  36  0040              L43:
+
+;  37: 				p++;
+  37  0040  0F00     R  MOV A,BANK _p
+  37  0041  0084        MOV [04H],A
+  37  0042  0F00     R  MOV A,OFFSET _p
+  37  0043  0083        MOV [03H],A
+  37  0044  0F01        MOV A,01h
+  37  0045  0382        ADDM A,[02H]
+  37  0046  0F00        MOV A,00h
+  37  0047  1483        INC [03H]
+  37  0048  1382        ADCM A,[02H]
+
+;  38: 				bit_in=1;
+  38  0049  0F00     R  MOV A,BANK _bit_in
+  38  004A  0084        MOV [04H],A
+  38  004B  0F00     R  MOV A,OFFSET _bit_in
+  38  004C  0083        MOV [03H],A
+  38  004D  0F01        MOV A,01h
+  38  004E  0082        MOV [02H],A
+  38  004F  1483        INC [03H]
+  38  0050  1F02        CLR [02H]
+
+;  39: 				}else if(t1>512){
+  39  0051  2800     R  JMP L9
+  39  0052              L8:
+  39  0052  0F00     R  MOV A,BANK _t1
+  39  0053  0084        MOV [04H],A
+  39  0054  0F00     R  MOV A,OFFSET _t1
+  39  0055  0083        MOV [03H],A
+  39  0056  0702        MOV A,[02H]
+  39  0057  0080     R  MOV b0_1,A
+  39  0058  1483        INC [03H]
+  39  0059  0702        MOV A,[02H]
+  39  005A  0080     R  MOV b0_1[1],A
+  39  005B  0F80        MOV A,80h
+  39  005C  0400     R  XOR A,b0_1[1]
+  39  005D  0A82        SUB A,082h
+  39  005E  380A        SNZ [0AH].0
+  39  005F  2800     R  JMP L10
+  39  0060  390A        SNZ [0AH].2
+  39  0061  2800     R  JMP L44
+  39  0062  0F00        MOV A,00h
+  39  0063  0200     R  SUB A,b0_1
+  39  0064  3C0A        SZ [0AH].0
+  39  0065  2800     R  JMP L10
+  39  0066              L44:
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 4 
+
+
+;  40: 					p++;
+  40  0066  0F00     R  MOV A,BANK _p
+  40  0067  0084        MOV [04H],A
+  40  0068  0F00     R  MOV A,OFFSET _p
+  40  0069  0083        MOV [03H],A
+  40  006A  0F01        MOV A,01h
+  40  006B  0382        ADDM A,[02H]
+  40  006C  0F00        MOV A,00h
+  40  006D  1483        INC [03H]
+  40  006E  1382        ADCM A,[02H]
+
+;  41: 					bit_in=0;
+  41  006F  0F00     R  MOV A,BANK _bit_in
+  41  0070  0084        MOV [04H],A
+  41  0071  0F00     R  MOV A,OFFSET _bit_in
+  41  0072  0083        MOV [03H],A
+  41  0073  1F02        CLR [02H]
+  41  0074  1483        INC [03H]
+  41  0075  1F02        CLR [02H]
+
+;  42: 					}else if(t1>256){p=0;}
+  42  0076  2800     R  JMP L11
+  42  0077              L10:
+  42  0077  0F00     R  MOV A,BANK _t1
+  42  0078  0084        MOV [04H],A
+  42  0079  0F00     R  MOV A,OFFSET _t1
+  42  007A  0083        MOV [03H],A
+  42  007B  0702        MOV A,[02H]
+  42  007C  0080     R  MOV b0_1,A
+  42  007D  1483        INC [03H]
+  42  007E  0702        MOV A,[02H]
+  42  007F  0080     R  MOV b0_1[1],A
+  42  0080  0F80        MOV A,80h
+  42  0081  0400     R  XOR A,b0_1[1]
+  42  0082  0A81        SUB A,081h
+  42  0083  380A        SNZ [0AH].0
+  42  0084  2800     R  JMP L12
+  42  0085  390A        SNZ [0AH].2
+  42  0086  2800     R  JMP L45
+  42  0087  0F00        MOV A,00h
+  42  0088  0200     R  SUB A,b0_1
+  42  0089  3C0A        SZ [0AH].0
+  42  008A  2800     R  JMP L12
+  42  008B              L45:
+  42  008B  0F00     R  MOV A,BANK _p
+  42  008C  0084        MOV [04H],A
+  42  008D  0F00     R  MOV A,OFFSET _p
+  42  008E  0083        MOV [03H],A
+  42  008F  1F02        CLR [02H]
+  42  0090  1483        INC [03H]
+  42  0091  1F02        CLR [02H]
+  42  0092              L12:
+  42  0092              L11:
+  42  0092              L9:
+
+;  43: 			if(p==1){
+  43  0092  0F00     R  MOV A,BANK _p
+  43  0093  0084        MOV [04H],A
+  43  0094  0F00     R  MOV A,OFFSET _p
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 5 
+
+  43  0095  0083        MOV [03H],A
+  43  0096  0702        MOV A,[02H]
+  43  0097  0080     R  MOV b0_1,A
+  43  0098  1483        INC [03H]
+  43  0099  0702        MOV A,[02H]
+  43  009A  0080     R  MOV b0_1[1],A
+  43  009B  0700     R  MOV A,b0_1
+  43  009C  0C01        XOR A,01h
+  43  009D  390A        SNZ [0AH].2
+  43  009E  2800     R  JMP L14
+  43  009F  0700     R  MOV A,b0_1[1]
+  43  00A0  0C00        XOR A,00h
+  43  00A1  390A        SNZ [0AH].2
+  43  00A2  2800     R  JMP L14
+
+;  44: 				if(bit_in){dev=1;}else{dev=0;}
+  44  00A3  0F00     R  MOV A,BANK _bit_in
+  44  00A4  0084        MOV [04H],A
+  44  00A5  0F00     R  MOV A,OFFSET _bit_in
+  44  00A6  0083        MOV [03H],A
+  44  00A7  0702        MOV A,[02H]
+  44  00A8  0080     R  MOV b0_1,A
+  44  00A9  1483        INC [03H]
+  44  00AA  0702        MOV A,[02H]
+  44  00AB  0080     R  MOV b0_1[1],A
+  44  00AC  0700     R  MOV A,b0_1
+  44  00AD  0500     R  OR A,b0_1[1]
+  44  00AE  3D0A        SZ [0AH].2
+  44  00AF  2800     R  JMP L16
+  44  00B0  0F00     R  MOV A,BANK _dev
+  44  00B1  0084        MOV [04H],A
+  44  00B2  0F00     R  MOV A,OFFSET _dev
+  44  00B3  0083        MOV [03H],A
+  44  00B4  0F01        MOV A,01h
+  44  00B5  0082        MOV [02H],A
+  44  00B6  1483        INC [03H]
+  44  00B7  1F02        CLR [02H]
+  44  00B8  2800     R  JMP L17
+  44  00B9              L16:
+  44  00B9  0F00     R  MOV A,BANK _dev
+  44  00BA  0084        MOV [04H],A
+  44  00BB  0F00     R  MOV A,OFFSET _dev
+  44  00BC  0083        MOV [03H],A
+  44  00BD  1F02        CLR [02H]
+  44  00BE  1483        INC [03H]
+  44  00BF  1F02        CLR [02H]
+  44  00C0              L17:
+  44  00C0              L14:
+
+;  46: 			if(p==2){
+  46  00C0  0F00     R  MOV A,BANK _p
+  46  00C1  0084        MOV [04H],A
+  46  00C2  0F00     R  MOV A,OFFSET _p
+  46  00C3  0083        MOV [03H],A
+  46  00C4  0702        MOV A,[02H]
+  46  00C5  0080     R  MOV b0_1,A
+  46  00C6  1483        INC [03H]
+  46  00C7  0702        MOV A,[02H]
+  46  00C8  0080     R  MOV b0_1[1],A
+  46  00C9  0700     R  MOV A,b0_1
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 6 
+
+  46  00CA  0C02        XOR A,02h
+  46  00CB  390A        SNZ [0AH].2
+  46  00CC  2800     R  JMP L18
+  46  00CD  0700     R  MOV A,b0_1[1]
+  46  00CE  0C00        XOR A,00h
+  46  00CF  390A        SNZ [0AH].2
+  46  00D0  2800     R  JMP L18
+
+;  47: 				if(bit_in){f=1;}else{f=0;}
+  47  00D1  0F00     R  MOV A,BANK _bit_in
+  47  00D2  0084        MOV [04H],A
+  47  00D3  0F00     R  MOV A,OFFSET _bit_in
+  47  00D4  0083        MOV [03H],A
+  47  00D5  0702        MOV A,[02H]
+  47  00D6  0080     R  MOV b0_1,A
+  47  00D7  1483        INC [03H]
+  47  00D8  0702        MOV A,[02H]
+  47  00D9  0080     R  MOV b0_1[1],A
+  47  00DA  0700     R  MOV A,b0_1
+  47  00DB  0500     R  OR A,b0_1[1]
+  47  00DC  3D0A        SZ [0AH].2
+  47  00DD  2800     R  JMP L20
+  47  00DE  0F00     R  MOV A,BANK _f
+  47  00DF  0084        MOV [04H],A
+  47  00E0  0F00     R  MOV A,OFFSET _f
+  47  00E1  0083        MOV [03H],A
+  47  00E2  0F01        MOV A,01h
+  47  00E3  0082        MOV [02H],A
+  47  00E4  1483        INC [03H]
+  47  00E5  1F02        CLR [02H]
+  47  00E6  2800     R  JMP L21
+  47  00E7              L20:
+  47  00E7  0F00     R  MOV A,BANK _f
+  47  00E8  0084        MOV [04H],A
+  47  00E9  0F00     R  MOV A,OFFSET _f
+  47  00EA  0083        MOV [03H],A
+  47  00EB  1F02        CLR [02H]
+  47  00EC  1483        INC [03H]
+  47  00ED  1F02        CLR [02H]
+  47  00EE              L21:
+  47  00EE              L18:
+
+;  49: 			if(p==3){
+  49  00EE  0F00     R  MOV A,BANK _p
+  49  00EF  0084        MOV [04H],A
+  49  00F0  0F00     R  MOV A,OFFSET _p
+  49  00F1  0083        MOV [03H],A
+  49  00F2  0702        MOV A,[02H]
+  49  00F3  0080     R  MOV b0_1,A
+  49  00F4  1483        INC [03H]
+  49  00F5  0702        MOV A,[02H]
+  49  00F6  0080     R  MOV b0_1[1],A
+  49  00F7  0700     R  MOV A,b0_1
+  49  00F8  0C03        XOR A,03h
+  49  00F9  390A        SNZ [0AH].2
+  49  00FA  2800     R  JMP L22
+  49  00FB  0700     R  MOV A,b0_1[1]
+  49  00FC  0C00        XOR A,00h
+  49  00FD  390A        SNZ [0AH].2
+  49  00FE  2800     R  JMP L22
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 7 
+
+
+;  50: 				if(bit_in){b=1;}else{b=0;}
+  50  00FF  0F00     R  MOV A,BANK _bit_in
+  50  0100  0084        MOV [04H],A
+  50  0101  0F00     R  MOV A,OFFSET _bit_in
+  50  0102  0083        MOV [03H],A
+  50  0103  0702        MOV A,[02H]
+  50  0104  0080     R  MOV b0_1,A
+  50  0105  1483        INC [03H]
+  50  0106  0702        MOV A,[02H]
+  50  0107  0080     R  MOV b0_1[1],A
+  50  0108  0700     R  MOV A,b0_1
+  50  0109  0500     R  OR A,b0_1[1]
+  50  010A  3D0A        SZ [0AH].2
+  50  010B  2800     R  JMP L24
+  50  010C  0F00     R  MOV A,BANK _b
+  50  010D  0084        MOV [04H],A
+  50  010E  0F00     R  MOV A,OFFSET _b
+  50  010F  0083        MOV [03H],A
+  50  0110  0F01        MOV A,01h
+  50  0111  0082        MOV [02H],A
+  50  0112  1483        INC [03H]
+  50  0113  1F02        CLR [02H]
+  50  0114  2800     R  JMP L25
+  50  0115              L24:
+  50  0115  0F00     R  MOV A,BANK _b
+  50  0116  0084        MOV [04H],A
+  50  0117  0F00     R  MOV A,OFFSET _b
+  50  0118  0083        MOV [03H],A
+  50  0119  1F02        CLR [02H]
+  50  011A  1483        INC [03H]
+  50  011B  1F02        CLR [02H]
+  50  011C              L25:
+  50  011C              L22:
+
+;  52: 			if(p==4){
+  52  011C  0F00     R  MOV A,BANK _p
+  52  011D  0084        MOV [04H],A
+  52  011E  0F00     R  MOV A,OFFSET _p
+  52  011F  0083        MOV [03H],A
+  52  0120  0702        MOV A,[02H]
+  52  0121  0080     R  MOV b0_1,A
+  52  0122  1483        INC [03H]
+  52  0123  0702        MOV A,[02H]
+  52  0124  0080     R  MOV b0_1[1],A
+  52  0125  0700     R  MOV A,b0_1
+  52  0126  0C04        XOR A,04h
+  52  0127  390A        SNZ [0AH].2
+  52  0128  2800     R  JMP L26
+  52  0129  0700     R  MOV A,b0_1[1]
+  52  012A  0C00        XOR A,00h
+  52  012B  390A        SNZ [0AH].2
+  52  012C  2800     R  JMP L26
+
+;  53: 				if(bit_in){h=1;}else{h=0;}
+  53  012D  0F00     R  MOV A,BANK _bit_in
+  53  012E  0084        MOV [04H],A
+  53  012F  0F00     R  MOV A,OFFSET _bit_in
+  53  0130  0083        MOV [03H],A
+  53  0131  0702        MOV A,[02H]
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 8 
+
+  53  0132  0080     R  MOV b0_1,A
+  53  0133  1483        INC [03H]
+  53  0134  0702        MOV A,[02H]
+  53  0135  0080     R  MOV b0_1[1],A
+  53  0136  0700     R  MOV A,b0_1
+  53  0137  0500     R  OR A,b0_1[1]
+  53  0138  3D0A        SZ [0AH].2
+  53  0139  2800     R  JMP L28
+  53  013A  0F00     R  MOV A,BANK _h
+  53  013B  0084        MOV [04H],A
+  53  013C  0F00     R  MOV A,OFFSET _h
+  53  013D  0083        MOV [03H],A
+  53  013E  0F01        MOV A,01h
+  53  013F  0082        MOV [02H],A
+  53  0140  1483        INC [03H]
+  53  0141  1F02        CLR [02H]
+  53  0142  2800     R  JMP L29
+  53  0143              L28:
+  53  0143  0F00     R  MOV A,BANK _h
+  53  0144  0084        MOV [04H],A
+  53  0145  0F00     R  MOV A,OFFSET _h
+  53  0146  0083        MOV [03H],A
+  53  0147  1F02        CLR [02H]
+  53  0148  1483        INC [03H]
+  53  0149  1F02        CLR [02H]
+  53  014A              L29:
+  53  014A              L26:
+
+;  55: 			if(p==4){
+  55  014A  0F00     R  MOV A,BANK _p
+  55  014B  0084        MOV [04H],A
+  55  014C  0F00     R  MOV A,OFFSET _p
+  55  014D  0083        MOV [03H],A
+  55  014E  0702        MOV A,[02H]
+  55  014F  0080     R  MOV b0_1,A
+  55  0150  1483        INC [03H]
+  55  0151  0702        MOV A,[02H]
+  55  0152  0080     R  MOV b0_1[1],A
+  55  0153  0700     R  MOV A,b0_1
+  55  0154  0C04        XOR A,04h
+  55  0155  390A        SNZ [0AH].2
+  55  0156  2800     R  JMP L30
+  55  0157  0700     R  MOV A,b0_1[1]
+  55  0158  0C00        XOR A,00h
+  55  0159  390A        SNZ [0AH].2
+  55  015A  2800     R  JMP L30
+
+;  56: 				if(dev & !d){}else{
+  56  015B  3E94        SZ [014H].5
+  56  015C  2800     R  JMP L35
+  56  015D  0F01        MOV A,01h
+  56  015E  0080     R  MOV CR1,A
+  56  015F  2800     R  JMP L36
+  56  0160              L35:
+  56  0160  1F00     R  CLR CR1
+  56  0161              L36:
+  56  0161  0700     R  MOV A,CR1
+  56  0162  0080     R  MOV b0_1,A
+  56  0163  1F00     R  CLR b0_1[1]
+  56  0164  0F00     R  MOV A,BANK _dev
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 9 
+
+  56  0165  0084        MOV [04H],A
+  56  0166  0F00     R  MOV A,OFFSET _dev
+  56  0167  0083        MOV [03H],A
+  56  0168  0702        MOV A,[02H]
+  56  0169  0600     R  AND A,b0_1
+  56  016A  0080     R  MOV b0_1,A
+  56  016B  1483        INC [03H]
+  56  016C  0702        MOV A,[02H]
+  56  016D  0600     R  AND A,b0_1[1]
+  56  016E  0080     R  MOV b0_1[1],A
+  56  016F  0700     R  MOV A,b0_1
+  56  0170  0500     R  OR A,b0_1[1]
+  56  0171  3D0A        SZ [0AH].2
+  56  0172  2800     R  JMP L32
+  56  0173  2800     R  JMP L33
+  56  0174              L32:
+
+;  57: 					if(f){turn_right();Led_on();}else if(b){turn_left();Led_on();}else{stop();Led_off();}
+  57  0174  0F00     R  MOV A,BANK _f
+  57  0175  0084        MOV [04H],A
+  57  0176  0F00     R  MOV A,OFFSET _f
+  57  0177  0083        MOV [03H],A
+  57  0178  0702        MOV A,[02H]
+  57  0179  0080     R  MOV b0_1,A
+  57  017A  1483        INC [03H]
+  57  017B  0702        MOV A,[02H]
+  57  017C  0080     R  MOV b0_1[1],A
+  57  017D  0700     R  MOV A,b0_1
+  57  017E  0500     R  OR A,b0_1[1]
+  57  017F  3D0A        SZ [0AH].2
+  57  0180  2800     R  JMP L37
+  57  0181  2000     R  CALL _turn_right
+  57  0182  2000     R  CALL _Led_on
+  57  0183  2800     R  JMP L38
+  57  0184              L37:
+  57  0184  0F00     R  MOV A,BANK _b
+  57  0185  0084        MOV [04H],A
+  57  0186  0F00     R  MOV A,OFFSET _b
+  57  0187  0083        MOV [03H],A
+  57  0188  0702        MOV A,[02H]
+  57  0189  0080     R  MOV b0_1,A
+  57  018A  1483        INC [03H]
+  57  018B  0702        MOV A,[02H]
+  57  018C  0080     R  MOV b0_1[1],A
+  57  018D  0700     R  MOV A,b0_1
+  57  018E  0500     R  OR A,b0_1[1]
+  57  018F  3D0A        SZ [0AH].2
+  57  0190  2800     R  JMP L39
+  57  0191  2000     R  CALL _turn_left
+  57  0192  2000     R  CALL _Led_on
+  57  0193  2800     R  JMP L40
+  57  0194              L39:
+  57  0194  2000     R  CALL _stop
+  57  0195  2000     R  CALL _Led_off
+  57  0196              L40:
+  57  0196              L38:
+
+;  58: 					if(h){buzz=1;}else{buzz=0;}
+  58  0196  0F00     R  MOV A,BANK _h
+  58  0197  0084        MOV [04H],A
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 10 
+
+  58  0198  0F00     R  MOV A,OFFSET _h
+  58  0199  0083        MOV [03H],A
+  58  019A  0702        MOV A,[02H]
+  58  019B  0080     R  MOV b0_1,A
+  58  019C  1483        INC [03H]
+  58  019D  0702        MOV A,[02H]
+  58  019E  0080     R  MOV b0_1[1],A
+  58  019F  0700     R  MOV A,b0_1
+  58  01A0  0500     R  OR A,b0_1[1]
+  58  01A1  3D0A        SZ [0AH].2
+  58  01A2  2800     R  JMP L41
+  58  01A3  0F00     R  MOV A,BANK _buzz
+  58  01A4  0084        MOV [04H],A
+  58  01A5  0F00     R  MOV A,OFFSET _buzz
+  58  01A6  0083        MOV [03H],A
+  58  01A7  0F01        MOV A,01h
+  58  01A8  0082        MOV [02H],A
+  58  01A9  1483        INC [03H]
+  58  01AA  1F02        CLR [02H]
+  58  01AB  2800     R  JMP L42
+  58  01AC              L41:
+  58  01AC  0F00     R  MOV A,BANK _buzz
+  58  01AD  0084        MOV [04H],A
+  58  01AE  0F00     R  MOV A,OFFSET _buzz
+  58  01AF  0083        MOV [03H],A
+  58  01B0  1F02        CLR [02H]
+  58  01B1  1483        INC [03H]
+  58  01B2  1F02        CLR [02H]
+  58  01B3              L42:
+  58  01B3              L33:
+  58  01B3              L30:
+  58  01B3              L7:
+  58  01B3              L5:
+  58  01B3  0700     E  MOV A,V1MP1
+  58  01B4  0083        MOV [03H],A
+  58  01B5  0700     E  MOV A,V1BP
+  58  01B6  0084        MOV [04H],A
+  58  01B7  0700     E  MOV A,V1S
+  58  01B8  008A        MOV [0AH],A
+  58  01B9  0700     E  MOV A,V1A
+  58  01BA  0004        RETI
+  58  01BB              _INT_ISR ENDP
+  58  01BB              RAMBANK 0 @INT_ISR
+  58  0000              @INT_ISR .SECTION 'DATA'
+  58  0000  0002[       b0_1 DB 2 DUP(?)
+            00
+            ]
+  58  0002  0002[       b1_1 DB 2 DUP(?)
+            00
+            ]
+  58  0004  00          CR1 DB ? ; 34
+
+;  85: {
+  85  0000              @@TB0_ISR .SECTION AT 08H 'CODE'
+  85  0000  2800     R  JMP _TB0_ISR
+  85  0000              @TB0_ISR .SECTION 'CODE'
+  85  0000              _TB0_ISR PROC
+  85  0000  0080     E  MOV V2A,A
+  85  0001  070A        MOV A,[0AH]
+  85  0002  0080     E  MOV V2S,A
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 11 
+
+  85  0003  0703        MOV A,[03H]
+  85  0004  0080     E  MOV V2MP1,A
+  85  0005  0704        MOV A,[04H]
+  85  0006  0080     E  MOV V2BP,A
+
+;  87: 	if(buzz){
+  87  0007  0F00     R  MOV A,BANK _buzz
+  87  0008  0084        MOV [04H],A
+  87  0009  0F00     R  MOV A,OFFSET _buzz
+  87  000A  0083        MOV [03H],A
+  87  000B  0702        MOV A,[02H]
+  87  000C  0080     R  MOV b0_2,A
+  87  000D  1483        INC [03H]
+  87  000E  0702        MOV A,[02H]
+  87  000F  0080     R  MOV b0_2[1],A
+  87  0010  0700     R  MOV A,b0_2
+  87  0011  0500     R  OR A,b0_2[1]
+  87  0012  3D0A        SZ [0AH].2
+  87  0013  2800     R  JMP L47
+
+;  88: 		C3=~C3;
+  88  0014  0F80        MOV A,1<<7
+  88  0015  0494        XORM A,[014H]
+
+;  89: 		}else{
+  89  0016  2800     R  JMP L48
+  89  0017              L47:
+
+;  90: 			C3=0;}
+  90  0017  3794        CLR [014H].7
+  90  0018              L48:
+
+;  91: 	TB1_CLEAR_FLAG();
+  91  0018  370E        CLR [0EH].6
+  91  0019              L46:
+  91  0019  0700     E  MOV A,V2MP1
+  91  001A  0083        MOV [03H],A
+  91  001B  0700     E  MOV A,V2BP
+  91  001C  0084        MOV [04H],A
+  91  001D  0700     E  MOV A,V2S
+  91  001E  008A        MOV [0AH],A
+  91  001F  0700     E  MOV A,V2A
+  91  0020  0004        RETI
+  91  0021              _TB0_ISR ENDP
+  91  0021              RAMBANK 0 @TB0_ISR
+  91  0000              @TB0_ISR .SECTION 'DATA'
+  91  0000  0002[       b0_2 DB 2 DUP(?)
+            00
+            ]
+
+;  98: {
+  98  0000              @@TB1_ISR .SECTION AT 0cH 'CODE'
+  98  0000  2800     R  JMP _TB1_ISR
+  98  0000              @TB1_ISR .SECTION 'CODE'
+  98  0000              _TB1_ISR PROC
+  98  0000  0080     E  MOV V3A,A
+  98  0001  070A        MOV A,[0AH]
+  98  0002  0080     E  MOV V3S,A
+
+;  99: 	STM_PAUSE();
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 12 
+
+  99  0003  33A8        SET [028H].7
+
+; 100: 	STM_DISABLE();
+ 100  0004  35A8        CLR [028H].3
+
+; 101: 	STM_ENABLE();
+ 101  0005  31A8        SET [028H].3
+
+; 102: 	TB0_CLEAR_FLAG();
+ 102  0006  368E        CLR [0EH].5
+ 102  0007              L49:
+ 102  0007  0700     E  MOV A,V3S
+ 102  0008  008A        MOV [0AH],A
+ 102  0009  0700     E  MOV A,V3A
+ 102  000A  0004        RETI
+ 102  000B              _TB1_ISR ENDP
+ 102  000B              RAMBANK 0 @TB1_ISR
+ 102  0000              @TB1_ISR .SECTION 'DATA'
+
+; 109: {
+ 109  0000              @MAIN .SECTION 'CODE'
+ 109  0000              _main PROC
+ 109  0000              begin:
+
+; 110: 	C4=0;
+ 110  0000  3714        CLR [014H].6
+
+; 111: 	_pac0=0;
+ 111  0001  3415        CLR [015H].0
+
+; 112: 	_pac1=0;
+ 112  0002  3495        CLR [015H].1
+
+; 113: 	_pac7=0;
+ 113  0003  3795        CLR [015H].7
+
+; 114: 	_pac6=0;
+ 114  0004  3715        CLR [015H].6
+
+; 115: 	_pac2=1;
+ 115  0005  3115        SET [015H].2
+
+; 116: 	_pac5=1;
+ 116  0006  3295        SET [015H].5
+
+; 117: 	_papu0=1;
+ 117  0007  3016        SET [016H].0
+
+; 118: 	_papu1=1;
+ 118  0008  3096        SET [016H].1
+
+; 119: 	_papu2=1;
+ 119  0009  3116        SET [016H].2
+
+; 120: 	_papu5=1;
+ 120  000A  3296        SET [016H].5
+
+; 121: 	_pawu2=1;
+ 121  000B  3117        SET [017H].2
+
+; 122: 	SysClockDivision_Init();
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 13 
+
+ 122  000C  2000     E  CALL _SysClockDivision_Init
+
+; 124: 	WDT_DISABLE();
+ 124  000D  0FA8        MOV A,0a8h
+ 124  000E  0099        MOV __wdtc,A
+
+; 125: 	STM_Init();
+ 125  000F  2000     E  CALL _STM_Init
+
+; 126: 	STM_ENABLE();
+ 126  0010  31A8        SET [028H].3
+
+; 127: 	STM_RUN();
+ 127  0011  37A8        CLR [028H].7
+
+; 131: 	TB_ENABLE();
+ 131  0012  339B        SET [01BH].7
+
+; 132: 	TB0_ISR_ENABLE();
+ 132  0013  310E        SET [0EH].2
+
+; 133: 	TB0_CLEAR_FLAG();
+ 133  0014  368E        CLR [0EH].5
+
+; 134: 	TB1_ISR_ENABLE();
+ 134  0015  318E        SET [0EH].3
+
+; 135: 	TB1_CLEAR_FLAG();
+ 135  0016  370E        CLR [0EH].6
+
+; 136: 	TimeBase_Init();
+ 136  0017  2000     E  CALL _TimeBase_Init
+
+; 138: 	Led_on();
+ 138  0018  2000     R  CALL _Led_on
+
+; 139: 	Buzzing();
+ 139  0019  2000     R  CALL _Buzzing
+
+; 140: 	Led_off();
+ 140  001A  2000     R  CALL _Led_off
+
+; 141: 	EXIT_Init();
+ 141  001B  2000     E  CALL _EXIT_Init
+
+; 142: 	INT_ISR_ENABLE();
+ 142  001C  308E        SET [0EH].1
+
+; 143: 	EMI_ENABLE();
+ 143  001D  300E        SET [0EH].0
+
+; 144: 	t0=0;
+ 144  001E  0F00     R  MOV A,BANK _t0
+ 144  001F  0084        MOV [04H],A
+ 144  0020  0F00     R  MOV A,OFFSET _t0
+ 144  0021  0083        MOV [03H],A
+ 144  0022  1F02        CLR [02H]
+ 144  0023  1483        INC [03H]
+ 144  0024  1F02        CLR [02H]
+
+; 145: 	buzz=0;
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 14 
+
+ 145  0025  0F00     R  MOV A,BANK _buzz
+ 145  0026  0084        MOV [04H],A
+ 145  0027  0F00     R  MOV A,OFFSET _buzz
+ 145  0028  0083        MOV [03H],A
+ 145  0029  1F02        CLR [02H]
+ 145  002A  1483        INC [03H]
+ 145  002B  1F02        CLR [02H]
+
+; 146: 	stop();
+ 146  002C  2000     R  CALL _stop
+ 146  002D  2800     R  JMP L52
+ 146  002E              L51:
+
+; 149: 		cnt++;
+ 149  002E  0F00     R  MOV A,BANK _cnt
+ 149  002F  0084        MOV [04H],A
+ 149  0030  0F00     R  MOV A,OFFSET _cnt
+ 149  0031  0083        MOV [03H],A
+ 149  0032  0F01        MOV A,01h
+ 149  0033  0382        ADDM A,[02H]
+ 149  0034  0F00        MOV A,00h
+ 149  0035  1483        INC [03H]
+ 149  0036  1382        ADCM A,[02H]
+
+; 150: 		if(cnt>20000)
+ 150  0037  0F00     R  MOV A,BANK _cnt
+ 150  0038  0084        MOV [04H],A
+ 150  0039  0F00     R  MOV A,OFFSET _cnt
+ 150  003A  0083        MOV [03H],A
+ 150  003B  0702        MOV A,[02H]
+ 150  003C  0080     R  MOV b0_4,A
+ 150  003D  1483        INC [03H]
+ 150  003E  0702        MOV A,[02H]
+ 150  003F  0080     R  MOV b0_4[1],A
+ 150  0040  0F80        MOV A,80h
+ 150  0041  0400     R  XOR A,b0_4[1]
+ 150  0042  0ACE        SUB A,0ceh
+ 150  0043  380A        SNZ [0AH].0
+ 150  0044  2800     R  JMP L54
+ 150  0045  390A        SNZ [0AH].2
+ 150  0046  2800     R  JMP L56
+ 150  0047  0F20        MOV A,020h
+ 150  0048  0200     R  SUB A,b0_4
+ 150  0049  3C0A        SZ [0AH].0
+ 150  004A  2800     R  JMP L54
+ 150  004B              L56:
+
+; 152: 			cnt=0;
+ 152  004B  0F00     R  MOV A,BANK _cnt
+ 152  004C  0084        MOV [04H],A
+ 152  004D  0F00     R  MOV A,OFFSET _cnt
+ 152  004E  0083        MOV [03H],A
+ 152  004F  1F02        CLR [02H]
+ 152  0050  1483        INC [03H]
+ 152  0051  1F02        CLR [02H]
+
+; 153: 			C1=0;C2=0;
+ 153  0052  3414        CLR [014H].0
+ 153  0053  3494        CLR [014H].1
+
+; 154: 		Led_off();
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 15 
+
+ 154  0054  2000     R  CALL _Led_off
+
+; 155: 		buzz=0;
+ 155  0055  0F00     R  MOV A,BANK _buzz
+ 155  0056  0084        MOV [04H],A
+ 155  0057  0F00     R  MOV A,OFFSET _buzz
+ 155  0058  0083        MOV [03H],A
+ 155  0059  1F02        CLR [02H]
+ 155  005A  1483        INC [03H]
+ 155  005B  1F02        CLR [02H]
+
+; 156: 		_delay(3050);
+ 156  005C  0F02        MOV A,02H
+ 156  005D  0080     E  MOV RH,A
+ 156  005E  0FF8        MOV A,0f8H
+ 156  005F  2000     E  CALL __DELAYY1
+
+; 157: 		_halt();}
+ 157  0060  0002        HALT
+ 157  0061              L54:
+ 157  0061              L52:
+
+; 148: 	while(1){
+ 148  0061  2800     R  JMP L51
+ 148  0062              L50:
+
+; 160: }
+ 160  0062  2800     R  JMP $
+ 160  0000  0002[       LOCAL b0_4 DB 2 DUP(?)
+            00
+            ]
+ 160  0063              _main ENDP
+
+; 164: void turn_right(){
+ 164  0000              @turn_right .SECTION 'CODE'
+ 164  0000              PUBLIC _turn_right
+ 164  0000              _turn_right PROC
+
+; 165: 	C1=0;
+ 165  0000  3414        CLR [014H].0
+
+; 166: 	C2=1;
+ 166  0001  3094        SET [014H].1
+ 166  0002              L57:
+ 166  0002  0003        RET
+ 166  0003              _turn_right ENDP
+
+; 168: void turn_left(){
+ 168  0000              @turn_left .SECTION 'CODE'
+ 168  0000              PUBLIC _turn_left
+ 168  0000              _turn_left PROC
+
+; 169: 	C1=1;
+ 169  0000  3014        SET [014H].0
+
+; 170: 	C2=0;
+ 170  0001  3494        CLR [014H].1
+ 170  0002              L58:
+ 170  0002  0003        RET
+ 170  0003              _turn_left ENDP
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 16 
+
+
+; 173: void stop(){
+ 173  0000              @stop .SECTION 'CODE'
+ 173  0000              PUBLIC _stop
+ 173  0000              _stop PROC
+
+; 174: 	C1=1;
+ 174  0000  3014        SET [014H].0
+
+; 175: 	C2=1;	
+ 175  0001  3094        SET [014H].1
+ 175  0002              L59:
+ 175  0002  0003        RET
+ 175  0003              _stop ENDP
+
+; 178: void Led_on(){
+ 178  0000              @Led_on .SECTION 'CODE'
+ 178  0000              PUBLIC _Led_on
+ 178  0000              _Led_on PROC
+
+; 179: 	C4=1;
+ 179  0000  3314        SET [014H].6
+ 179  0001              L60:
+ 179  0001  0003        RET
+ 179  0002              _Led_on ENDP
+
+; 181: void Led_off(){
+ 181  0000              @Led_off .SECTION 'CODE'
+ 181  0000              PUBLIC _Led_off
+ 181  0000              _Led_off PROC
+
+; 182: 	C4=0;
+ 182  0000  3714        CLR [014H].6
+ 182  0001              L61:
+ 182  0001  0003        RET
+ 182  0002              _Led_off ENDP
+
+; 184: void Buzzing(){
+ 184  0000              @Buzzing .SECTION 'CODE'
+ 184  0000              PUBLIC _Buzzing
+ 184  0000              _Buzzing PROC
+
+; 196: 	for(i=0;i<300;i++){
+ 196  0000  0F00     R  MOV A,BANK _i
+ 196  0001  0084        MOV [04H],A
+ 196  0002  0F00     R  MOV A,OFFSET _i
+ 196  0003  0083        MOV [03H],A
+ 196  0004  1F02        CLR [02H]
+ 196  0005  1483        INC [03H]
+ 196  0006  1F02        CLR [02H]
+ 196  0007              L63:
+
+; 197: 		C3=1;
+ 197  0007  3394        SET [014H].7
+
+; 198: 		_delay(1050);
+ 198  0008  0F01        MOV A,01H
+ 198  0009  0080     E  MOV RH,A
+ 198  000A  0F04        MOV A,04H
+ 198  000B  2000     E  CALL __DELAYY3
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 17 
+
+
+; 199: 		C3=0;
+ 199  000C  3794        CLR [014H].7
+
+; 200: 		_delay(1050);
+ 200  000D  0F01        MOV A,01H
+ 200  000E  0080     E  MOV RH,A
+ 200  000F  0F04        MOV A,04H
+ 200  0010  2000     E  CALL __DELAYY3
+ 200  0011              L64:
+
+; 196: 	for(i=0;i<300;i++){
+ 196  0011  0F00     R  MOV A,BANK _i
+ 196  0012  0084        MOV [04H],A
+ 196  0013  0F00     R  MOV A,OFFSET _i
+ 196  0014  0083        MOV [03H],A
+ 196  0015  0F01        MOV A,01h
+ 196  0016  0382        ADDM A,[02H]
+ 196  0017  0F00        MOV A,00h
+ 196  0018  1483        INC [03H]
+ 196  0019  1382        ADCM A,[02H]
+ 196  001A  0F00     R  MOV A,BANK _i
+ 196  001B  0084        MOV [04H],A
+ 196  001C  0F00     R  MOV A,OFFSET _i
+ 196  001D  0083        MOV [03H],A
+ 196  001E  0702        MOV A,[02H]
+ 196  001F  0080     R  MOV b0_10,A
+ 196  0020  1483        INC [03H]
+ 196  0021  0702        MOV A,[02H]
+ 196  0022  0080     R  MOV b0_10[1],A
+ 196  0023  0F80        MOV A,80h
+ 196  0024  0400     R  XOR A,b0_10[1]
+ 196  0025  0A81        SUB A,081h
+ 196  0026  380A        SNZ [0AH].0
+ 196  0027  2800     R  JMP L63
+ 196  0028  390A        SNZ [0AH].2
+ 196  0029  2800     R  JMP L71
+ 196  002A  0700     R  MOV A,b0_10
+ 196  002B  0A2C        SUB A,02ch
+ 196  002C  380A        SNZ [0AH].0
+ 196  002D  2800     R  JMP L63
+ 196  002E              L71:
+
+; 202: 	for(i=0;i<220;i++){
+ 202  002E  0F00     R  MOV A,BANK _i
+ 202  002F  0084        MOV [04H],A
+ 202  0030  0F00     R  MOV A,OFFSET _i
+ 202  0031  0083        MOV [03H],A
+ 202  0032  1F02        CLR [02H]
+ 202  0033  1483        INC [03H]
+ 202  0034  1F02        CLR [02H]
+ 202  0035              L67:
+
+; 203: 		C3=1;
+ 203  0035  3394        SET [014H].7
+
+; 204: 		_delay(1420);
+ 204  0036  0F01        MOV A,01H
+ 204  0037  0080     E  MOV RH,A
+ 204  0038  0F61        MOV A,061H
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 18 
+
+ 204  0039  2000     E  CALL __DELAYY1
+
+; 205: 		C3=0;
+ 205  003A  3794        CLR [014H].7
+
+; 206: 		_delay(1420);
+ 206  003B  0F01        MOV A,01H
+ 206  003C  0080     E  MOV RH,A
+ 206  003D  0F61        MOV A,061H
+ 206  003E  2000     E  CALL __DELAYY1
+ 206  003F              L68:
+
+; 202: 	for(i=0;i<220;i++){
+ 202  003F  0F00     R  MOV A,BANK _i
+ 202  0040  0084        MOV [04H],A
+ 202  0041  0F00     R  MOV A,OFFSET _i
+ 202  0042  0083        MOV [03H],A
+ 202  0043  0F01        MOV A,01h
+ 202  0044  0382        ADDM A,[02H]
+ 202  0045  0F00        MOV A,00h
+ 202  0046  1483        INC [03H]
+ 202  0047  1382        ADCM A,[02H]
+ 202  0048  0F00     R  MOV A,BANK _i
+ 202  0049  0084        MOV [04H],A
+ 202  004A  0F00     R  MOV A,OFFSET _i
+ 202  004B  0083        MOV [03H],A
+ 202  004C  0702        MOV A,[02H]
+ 202  004D  0080     R  MOV b0_10,A
+ 202  004E  1483        INC [03H]
+ 202  004F  0702        MOV A,[02H]
+ 202  0050  0080     R  MOV b0_10[1],A
+ 202  0051  0F80        MOV A,80h
+ 202  0052  0400     R  XOR A,b0_10[1]
+ 202  0053  0A80        SUB A,080h
+ 202  0054  380A        SNZ [0AH].0
+ 202  0055  2800     R  JMP L67
+ 202  0056  390A        SNZ [0AH].2
+ 202  0057  2800     R  JMP L72
+ 202  0058  0700     R  MOV A,b0_10
+ 202  0059  0ADC        SUB A,0dch
+ 202  005A  380A        SNZ [0AH].0
+ 202  005B  2800     R  JMP L67
+ 202  005C              L72:
+ 202  005C              L62:
+ 202  005C  0003        RET
+ 202  0000  0002[       LOCAL b0_10 DB 2 DUP(?)
+            00
+            ]
+ 202  005D              _Buzzing ENDP
+
+;  14: int dev,bit_in,f,b,h;
+  14  005D              PUBLIC _h
+  14  0000              @h .SECTION 'DATA'
+  14  0000  0002[       _h DB 2 DUP (?) ;h
+            00
+            ]
+  14  0002              PUBLIC _b
+  14  0000              @b .SECTION 'DATA'
+  14  0000  0002[       _b DB 2 DUP (?) ;b
+            00
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 19 
+
+            ]
+  14  0002              PUBLIC _f
+  14  0000              @f .SECTION 'DATA'
+  14  0000  0002[       _f DB 2 DUP (?) ;f
+            00
+            ]
+  14  0002              PUBLIC _bit_in
+  14  0000              @bit_in .SECTION 'DATA'
+  14  0000  0002[       _bit_in DB 2 DUP (?) ;bit_in
+            00
+            ]
+  14  0002              PUBLIC _dev
+  14  0000              @dev .SECTION 'DATA'
+  14  0000  0002[       _dev DB 2 DUP (?) ;dev
+            00
+            ]
+
+;  13: int diff;
+  13  0002              PUBLIC _diff
+  13  0000              @diff .SECTION 'DATA'
+  13  0000  0002[       _diff DB 2 DUP (?) ;diff
+            00
+            ]
+
+;  12: int t0,t1,buzz,cnt;
+  12  0002              PUBLIC _cnt
+  12  0000              @cnt .SECTION 'DATA'
+  12  0000  0002[       _cnt DB 2 DUP (?) ;cnt
+            00
+            ]
+  12  0002              PUBLIC _buzz
+  12  0000              @buzz .SECTION 'DATA'
+  12  0000  0002[       _buzz DB 2 DUP (?) ;buzz
+            00
+            ]
+  12  0002              PUBLIC _t1
+  12  0000              @t1 .SECTION 'DATA'
+  12  0000  0002[       _t1 DB 2 DUP (?) ;t1
+            00
+            ]
+  12  0002              PUBLIC _t0
+  12  0000              @t0 .SECTION 'DATA'
+  12  0000  0002[       _t0 DB 2 DUP (?) ;t0
+            00
+            ]
+
+;  11: int i,j,p;
+  11  0002              PUBLIC _p
+  11  0000              @p .SECTION 'DATA'
+  11  0000  0002[       _p DB 2 DUP (?) ;p
+            00
+            ]
+  11  0002              PUBLIC _j
+  11  0000              @j .SECTION 'DATA'
+  11  0000  0002[       _j DB 2 DUP (?) ;j
+            00
+            ]
+  11  0002              PUBLIC _i
+  11  0000              @i .SECTION 'DATA'
+  11  0000  0002[       _i DB 2 DUP (?) ;i
+"File: car2.c        Holtek Cross-Assembler  Version 3.00      Page 20 
+
+            00
+            ]
+  11  0002              EXTERN _TimeBase_Init:NEAR
+  11  0002              EXTERN _STM_Init:NEAR
+  11  0002              EXTERN _EXIT_Init:NEAR
+  11  0002              EXTERN _SysClockDivision_Init:NEAR
+
+; 108: void main()
+ 108  0000              STARTSEC .SECTION  COM_L 'CODE'
+ 108  0000              STARTUP:
+ 108  0000              STARTSEC .SECTION  COM_E 'CODE'
+ 108  0000  0003        RET
+ 108  0001              EXTERN RH:BYTE
+ 108  0001              EXTERN V1A:BYTE
+ 108  0001              EXTERN V1S:BYTE
+ 108  0001              EXTERN V1MP1:BYTE
+ 108  0001              EXTERN V1BP:BYTE
+ 108  0001              EXTERN V2A:BYTE
+ 108  0001              EXTERN V2S:BYTE
+ 108  0001              EXTERN V2MP1:BYTE
+ 108  0001              EXTERN V2BP:BYTE
+ 108  0001              EXTERN V3A:BYTE
+ 108  0001              EXTERN V3S:BYTE
+ 108  0001              EXTERN __DELAYY0:NEAR
+ 108  0001              EXTERN __DELAYY1:NEAR
+ 108  0001              EXTERN __DELAYY2:NEAR
+ 108  0001              EXTERN __DELAYY3:NEAR
+ 108  0001              EXTERN __DELAYY4:NEAR
+ 108  0001              EXTERN __DELAYY5:NEAR
+ 108  0000              @CODE .SECTION AT 0 'CODE'
+ 108  0000  2000     R  CALL STARTUP
+ 108  0001  2800     R  JMP begin
+ 108  0002              @DUMMY PROC
+ 108  0002  2000     R  CALL _main
+ 108  0003              @DUMMY ENDP
+
+
+        0 Errors

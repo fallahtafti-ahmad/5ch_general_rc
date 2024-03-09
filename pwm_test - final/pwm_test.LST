@@ -1,0 +1,506 @@
+"File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 1
+
+
+
+;  56: {
+  56  0000              __stm0ah EQU [02dH]
+  56  0000              __stm0al EQU [02cH]
+  56  0000              __stm0dh EQU [02bH]
+  56  0000              __stm0dl EQU [02aH]
+  56  0000              __stm0c1 EQU [029H]
+  56  0000              __stm0c0 EQU [028H]
+  56  0000              __pasr EQU [026H]
+  56  0000              __rstc EQU [025H]
+  56  0000              __sadc2 EQU [024H]
+  56  0000              __sadc1 EQU [023H]
+  56  0000              __sadc0 EQU [022H]
+  56  0000              __sadoh EQU [021H]
+  56  0000              __sadol EQU [020H]
+  56  0000              __eed EQU [01fH]
+  56  0000              __eea EQU [01eH]
+  56  0000              __smod1 EQU [01cH]
+  56  0000              __tbc EQU [01bH]
+  56  0000              __wdtc EQU [019H]
+  56  0000              __ifs0 EQU [018H]
+  56  0000              __pawu EQU [017H]
+  56  0000              __papu EQU [016H]
+  56  0000              __pac EQU [015H]
+  56  0000              __pa EQU [014H]
+  56  0000              __mfi0 EQU [011H]
+  56  0000              __intc1 EQU [0fH]
+  56  0000              __intc0 EQU [0eH]
+  56  0000              __integ EQU [0dH]
+  56  0000              __smod EQU [0bH]
+  56  0000              __status EQU [0aH]
+  56  0000              __tblh EQU [08H]
+  56  0000              __tblp EQU [07H]
+  56  0000              __pcl EQU [06H]
+  56  0000              __acc EQU [05H]
+  56  0000              __bp EQU [04H]
+  56  0000              __mp1 EQU [03H]
+  56  0000              __iar1 EQU [02H]
+  56  0000              __mp0 EQU [01H]
+  56  0000              __iar0 EQU [00H]
+  56  0000              @MAIN .SECTION 'CODE'
+  56  0000              _main PROC
+  56  0000              begin:
+
+;  57: 	_ws0=1;
+  57  0000  3019        SET [019H].0
+
+;  58: 	_ws1=1;
+  58  0001  3099        SET [019H].1
+
+;  59: 	_ws2=1;
+  59  0002  3119        SET [019H].2
+
+;  62: 	_pawu6=1;
+  62  0003  3317        SET [017H].6
+
+;  63: 	_pawu7=1;
+  63  0004  3397        SET [017H].7
+"File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 2 
+
+
+;  64: 	_pawu1=1;
+  64  0005  3097        SET [017H].1
+
+;  65: 	_pac6=1;
+  65  0006  3315        SET [015H].6
+
+;  66: 	_papu6=1;
+  66  0007  3316        SET [016H].6
+
+;  67: 	_pac7=1;
+  67  0008  3395        SET [015H].7
+
+;  68: 	_papu7=1;
+  68  0009  3396        SET [016H].7
+
+;  69: 	_pac1=1;
+  69  000A  3095        SET [015H].1
+
+;  70: 	_papu1=1;
+  70  000B  3096        SET [016H].1
+
+;  71: 	_pac5=1;
+  71  000C  3295        SET [015H].5
+
+;  72: 	_papu5=1;
+  72  000D  3296        SET [016H].5
+
+;  74: 	STM_Init();
+  74  000E  2000     E  CALL _STM_Init
+
+;  76: 	g_nCCRA = 105;	//PWM duty set 128
+  76  000F  0F00     R  MOV A,BANK _g_nCCRA
+  76  0010  0084        MOV [04H],A
+  76  0011  0F00     R  MOV A,OFFSET _g_nCCRA
+  76  0012  0083        MOV [03H],A
+  76  0013  0F69        MOV A,069h
+  76  0014  0082        MOV [02H],A
+  76  0015  1483        INC [03H]
+  76  0016  1F02        CLR [02H]
+
+;  77: 	g_nCCRP = 2;	//PWM period set 4*128
+  77  0017  0F00     R  MOV A,BANK _g_nCCRP
+  77  0018  0084        MOV [04H],A
+  77  0019  0F00     R  MOV A,OFFSET _g_nCCRP
+  77  001A  0083        MOV [03H],A
+  77  001B  0F02        MOV A,02h
+  77  001C  0082        MOV [02H],A
+  77  001D  1483        INC [03H]
+  77  001E  1F02        CLR [02H]
+
+;  89: 	STM_CompareMatchOutputConfig();
+  89  001F  2000     E  CALL _STM_CompareMatchOutputConfig
+
+;  90: 	STM_CompareMatchOutputUpdate(g_nCCRA);
+  90  0020  0F00     R  MOV A,BANK _g_nCCRA
+  90  0021  0084        MOV [04H],A
+  90  0022  0F00     R  MOV A,OFFSET _g_nCCRA
+  90  0023  0083        MOV [03H],A
+  90  0024  0702        MOV A,[02H]
+"File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 3 
+
+  90  0025  0080     E  MOV STM_CompareMatchOutputUpdate0,A
+  90  0026  1483        INC [03H]
+  90  0027  0702        MOV A,[02H]
+  90  0028  0080     E  MOV STM_CompareMatchOutputUpdate0[1],A
+  90  0029  2000     E  CALL _STM_CompareMatchOutputUpdate
+
+;  91: 	_delay(20000);	//wait system stable
+  91  002A  0F13        MOV A,013H
+  91  002B  0080     E  MOV RH,A
+  91  002C  0F7D        MOV A,07dH
+  91  002D  2000     E  CALL __DELAYY1
+  91  002E  2800     R  JMP L7
+  91  002F              L6:
+
+;  96: 		stop=1;
+  96  002F  0F00     R  MOV A,BANK _stop
+  96  0030  0084        MOV [04H],A
+  96  0031  0F00     R  MOV A,OFFSET _stop
+  96  0032  0083        MOV [03H],A
+  96  0033  0F01        MOV A,1
+  96  0034  0082        MOV [02H],A
+
+; 198: 		send_sink();
+ 198  0035  2000     R  CALL _send_sink
+
+; 199: 		send_sink();
+ 199  0036  2000     R  CALL _send_sink
+
+; 200: 		if (d){
+ 200  0037  3A94        SNZ [014H].5
+ 200  0038  2800     R  JMP L9
+
+; 201: 			send_one();
+ 201  0039  2000     R  CALL _send_one
+
+; 203: 			}else{
+ 203  003A  2800     R  JMP L10
+ 203  003B              L9:
+
+; 204: 				send_zero();
+ 204  003B  2000     R  CALL _send_zero
+ 204  003C              L10:
+
+; 207: 		if (!f){
+ 207  003C  3F14        SZ [014H].6
+ 207  003D  2800     R  JMP L11
+
+; 208: 			stop=0;
+ 208  003E  0F00     R  MOV A,BANK _stop
+ 208  003F  0084        MOV [04H],A
+ 208  0040  0F00     R  MOV A,OFFSET _stop
+ 208  0041  0083        MOV [03H],A
+ 208  0042  1F02        CLR [02H]
+
+; 209: 			r=0;
+ 209  0043  0F00     R  MOV A,BANK _r
+ 209  0044  0084        MOV [04H],A
+ 209  0045  0F00     R  MOV A,OFFSET _r
+ 209  0046  0083        MOV [03H],A
+ 209  0047  1F02        CLR [02H]
+"File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 4 
+
+ 209  0048  1483        INC [03H]
+ 209  0049  1F02        CLR [02H]
+
+; 210: 			send_one();
+ 210  004A  2000     R  CALL _send_one
+
+; 212: 			}else{
+ 212  004B  2800     R  JMP L12
+ 212  004C              L11:
+
+; 213: 				send_zero();
+ 213  004C  2000     R  CALL _send_zero
+ 213  004D              L12:
+
+; 216: 		if (!b){
+ 216  004D  3F94        SZ [014H].7
+ 216  004E  2800     R  JMP L13
+
+; 217: 			stop=0;
+ 217  004F  0F00     R  MOV A,BANK _stop
+ 217  0050  0084        MOV [04H],A
+ 217  0051  0F00     R  MOV A,OFFSET _stop
+ 217  0052  0083        MOV [03H],A
+ 217  0053  1F02        CLR [02H]
+
+; 218: 			r=0;
+ 218  0054  0F00     R  MOV A,BANK _r
+ 218  0055  0084        MOV [04H],A
+ 218  0056  0F00     R  MOV A,OFFSET _r
+ 218  0057  0083        MOV [03H],A
+ 218  0058  1F02        CLR [02H]
+ 218  0059  1483        INC [03H]
+ 218  005A  1F02        CLR [02H]
+
+; 219: 			send_one();
+ 219  005B  2000     R  CALL _send_one
+
+; 221: 			}else{
+ 221  005C  2800     R  JMP L14
+ 221  005D              L13:
+
+; 222: 				send_zero();
+ 222  005D  2000     R  CALL _send_zero
+ 222  005E              L14:
+
+; 225: 		if (!h){
+ 225  005E  3C94        SZ [014H].1
+ 225  005F  2800     R  JMP L15
+
+; 226: 			stop=0;
+ 226  0060  0F00     R  MOV A,BANK _stop
+ 226  0061  0084        MOV [04H],A
+ 226  0062  0F00     R  MOV A,OFFSET _stop
+ 226  0063  0083        MOV [03H],A
+ 226  0064  1F02        CLR [02H]
+
+; 227: 			r=0;
+ 227  0065  0F00     R  MOV A,BANK _r
+ 227  0066  0084        MOV [04H],A
+ 227  0067  0F00     R  MOV A,OFFSET _r
+"File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 5 
+
+ 227  0068  0083        MOV [03H],A
+ 227  0069  1F02        CLR [02H]
+ 227  006A  1483        INC [03H]
+ 227  006B  1F02        CLR [02H]
+
+; 228: 			send_one();
+ 228  006C  2000     R  CALL _send_one
+
+; 230: 			}else{
+ 230  006D  2800     R  JMP L16
+ 230  006E              L15:
+
+; 231: 				send_zero();
+ 231  006E  2000     R  CALL _send_zero
+ 231  006F              L16:
+
+; 235: 		_delay(200000);
+ 235  006F  0FC2        MOV A,0c2H
+ 235  0070  0080     E  MOV RH,A
+ 235  0071  0FED        MOV A,0edH
+ 235  0072  2000     E  CALL __DELAYY3
+
+; 236: 		if (d){
+ 236  0073  3A94        SNZ [014H].5
+ 236  0074  2800     R  JMP L17
+
+; 237: 			_delay(40000);
+ 237  0075  0F26        MOV A,026H
+ 237  0076  0080     E  MOV RH,A
+ 237  0077  0FFB        MOV A,0fbH
+ 237  0078  2000     E  CALL __DELAYY3
+ 237  0079              L17:
+
+; 240: 		if(stop){
+ 240  0079  0F00     R  MOV A,BANK _stop
+ 240  007A  0084        MOV [04H],A
+ 240  007B  0F00     R  MOV A,OFFSET _stop
+ 240  007C  0083        MOV [03H],A
+ 240  007D  1082        SZ [02H]
+ 240  007E  2800     R  JMP L23
+ 240  007F  2800     R  JMP L19
+ 240  0080              L23:
+
+; 241: 		if(r<3){
+ 241  0080  0F00     R  MOV A,BANK _r
+ 241  0081  0084        MOV [04H],A
+ 241  0082  0F00     R  MOV A,OFFSET _r
+ 241  0083  0083        MOV [03H],A
+ 241  0084  0702        MOV A,[02H]
+ 241  0085  0080     R  MOV b0_1,A
+ 241  0086  1483        INC [03H]
+ 241  0087  0702        MOV A,[02H]
+ 241  0088  0080     R  MOV b0_1[1],A
+ 241  0089  0F80        MOV A,80h
+ 241  008A  0400     R  XOR A,b0_1[1]
+ 241  008B  0080     E  MOV RH,A
+ 241  008C  0F80        MOV A,080h
+ 241  008D  0200     E  SUB A,RH
+ 241  008E  380A        SNZ [0AH].0
+ 241  008F  2800     R  JMP L21
+"File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 6 
+
+ 241  0090  390A        SNZ [0AH].2
+ 241  0091  2800     R  JMP L24
+ 241  0092  0700     R  MOV A,b0_1
+ 241  0093  0A03        SUB A,03h
+ 241  0094  3C0A        SZ [0AH].0
+ 241  0095  2800     R  JMP L21
+ 241  0096              L24:
+
+; 242: 		r++;
+ 242  0096  0F00     R  MOV A,BANK _r
+ 242  0097  0084        MOV [04H],A
+ 242  0098  0F00     R  MOV A,OFFSET _r
+ 242  0099  0083        MOV [03H],A
+ 242  009A  0F01        MOV A,01h
+ 242  009B  0382        ADDM A,[02H]
+ 242  009C  0F00        MOV A,00h
+ 242  009D  1483        INC [03H]
+ 242  009E  1382        ADCM A,[02H]
+
+; 265: 			}else{
+ 265  009F  2800     R  JMP L22
+ 265  00A0              L21:
+
+; 266: 		_idlen=0;
+ 266  00A0  348B        CLR [0BH].1
+
+; 267: 		_wdtc=175;
+ 267  00A1  0FAF        MOV A,0afh
+ 267  00A2  0099        MOV __wdtc,A
+
+; 268: 		_halt();
+ 268  00A3  0002        HALT
+
+; 269: 		_delay(240000);
+ 269  00A4  0FE9        MOV A,0e9H
+ 269  00A5  0080     E  MOV RH,A
+ 269  00A6  0FEA        MOV A,0eaH
+ 269  00A7  2000     E  CALL __DELAYY1
+
+; 270: 		_wdtc=80;
+ 270  00A8  0F50        MOV A,050h
+ 270  00A9  0099        MOV __wdtc,A
+ 270  00AA              L22:
+ 270  00AA              L19:
+
+; 275: 		_clrwdt();
+ 275  00AA  0001        CLR WDT
+ 275  00AB              L7:
+
+;  94: 	while(1)
+  94  00AB  2800     R  JMP L6
+  94  00AC              L5:
+
+; 278: }
+ 278  00AC  2800     R  JMP $
+ 278  0000  0002[       LOCAL b0_1 DB 2 DUP(?)
+            00
+            ]
+ 278  00AD              _main ENDP
+
+; 279: void send_one(void){
+"File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 7 
+
+ 279  0000              @send_one .SECTION 'CODE'
+ 279  0000              PUBLIC _send_one
+ 279  0000              _send_one PROC
+
+; 280: 		STM_ENABLE();
+ 280  0000  31A8        SET [028H].3
+
+; 281: 		_delay(13000);
+ 281  0001  0F0C        MOV A,0cH
+ 281  0002  0080     E  MOV RH,A
+ 281  0003  0FAA        MOV A,0aaH
+ 281  0004  2000     E  CALL __DELAYY3
+
+; 282: 		STM_DISABLE();
+ 282  0005  35A8        CLR [028H].3
+
+; 283: 		_delay(3000);
+ 283  0006  0F02        MOV A,02H
+ 283  0007  0080     E  MOV RH,A
+ 283  0008  0FEB        MOV A,0ebH
+ 283  0009  2000     E  CALL __DELAYY3
+ 283  000A              L25:
+ 283  000A  0003        RET
+ 283  000B              _send_one ENDP
+
+; 285: void send_zero(void){
+ 285  0000              @send_zero .SECTION 'CODE'
+ 285  0000              PUBLIC _send_zero
+ 285  0000              _send_zero PROC
+
+; 286: 		STM_ENABLE();
+ 286  0000  31A8        SET [028H].3
+
+; 287: 		_delay(8000);
+ 287  0001  0F07        MOV A,07H
+ 287  0002  0080     E  MOV RH,A
+ 287  0003  0FCB        MOV A,0cbH
+ 287  0004  2000     E  CALL __DELAYY1
+
+; 288: 		STM_DISABLE();
+ 288  0005  35A8        CLR [028H].3
+
+; 289: 		_delay(3000);
+ 289  0006  0F02        MOV A,02H
+ 289  0007  0080     E  MOV RH,A
+ 289  0008  0FEB        MOV A,0ebH
+ 289  0009  2000     E  CALL __DELAYY3
+ 289  000A              L26:
+ 289  000A  0003        RET
+ 289  000B              _send_zero ENDP
+
+; 291: void send_sink(void){
+ 291  0000              @send_sink .SECTION 'CODE'
+ 291  0000              PUBLIC _send_sink
+ 291  0000              _send_sink PROC
+
+; 292: 		STM_ENABLE();
+ 292  0000  31A8        SET [028H].3
+
+; 293: 		_delay(4000);
+"File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 8 
+
+ 293  0001  0F03        MOV A,03H
+ 293  0002  0080     E  MOV RH,A
+ 293  0003  0FE5        MOV A,0e5H
+ 293  0004  2000     E  CALL __DELAYY1
+
+; 294: 		STM_DISABLE();
+ 294  0005  35A8        CLR [028H].3
+
+; 295: 		_delay(3000);
+ 295  0006  0F02        MOV A,02H
+ 295  0007  0080     E  MOV RH,A
+ 295  0008  0FEB        MOV A,0ebH
+ 295  0009  2000     E  CALL __DELAYY3
+ 295  000A              L27:
+ 295  000A  0003        RET
+ 295  000B              _send_sink ENDP
+ 295  000B              EXTERN STM_CompareMatchOutputUpdate0:BYTE
+
+;  43: u16	g_nCCRP ;		
+  43  000B              PUBLIC _g_nCCRP
+  43  0000              @g_nCCRP .SECTION 'DATA'
+  43  0000  0002[       _g_nCCRP DB 2 DUP (?) ;g_nCCRP
+            00
+            ]
+
+;  42: u16	g_nCCRA ;		
+  42  0002              PUBLIC _g_nCCRA
+  42  0000              @g_nCCRA .SECTION 'DATA'
+  42  0000  0002[       _g_nCCRA DB 2 DUP (?) ;g_nCCRA
+            00
+            ]
+
+;  41: int r;
+  41  0002              PUBLIC _r
+  41  0000              @r .SECTION 'DATA'
+  41  0000  0002[       _r DB 2 DUP (?) ;r
+            00
+            ]
+
+;  40: bool stop;
+  40  0002              PUBLIC _stop
+  40  0000              @stop .SECTION 'DATA'
+  40  0000  00          _stop DB ? ; stop
+  40  0001              EXTERN _STM_CompareMatchOutputUpdate:NEAR
+  40  0001              EXTERN _STM_CompareMatchOutputConfig:NEAR
+  40  0001              EXTERN _STM_Init:NEAR
+
+;  55: void main()
+  55  0000              STARTSEC .SECTION  COM_L 'CODE'
+  55  0000              STARTUP:
+  55  0000              STARTSEC .SECTION  COM_E 'CODE'
+  55  0000  0003        RET
+  55  0001              EXTERN RH:BYTE
+  55  0001              EXTERN __DELAYY0:NEAR
+  55  0001              EXTERN __DELAYY1:NEAR
+  55  0001              EXTERN __DELAYY2:NEAR
+  55  0001              EXTERN __DELAYY3:NEAR
+  55  0001              EXTERN __DELAYY4:NEAR
+  55  0001              EXTERN __DELAYY5:NEAR
+  55  0000              @CODE .SECTION AT 0 'CODE'
+"File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 9 
+
+  55  0000  2000     R  CALL STARTUP
+  55  0001  2800     R  JMP begin
+  55  0002              @DUMMY PROC
+  55  0002  2000     R  CALL _main
+  55  0003              @DUMMY ENDP
+
+
+        0 Errors

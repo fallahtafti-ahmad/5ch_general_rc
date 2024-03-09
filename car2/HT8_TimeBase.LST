@@ -1,0 +1,66 @@
+"File: HT8_TimeBase.c  Holtek Cross-Assembler  Version 3.00      Page 1
+
+
+
+;  38: {
+  38  0000              __stm0ah EQU [02dH]
+  38  0000              __stm0al EQU [02cH]
+  38  0000              __stm0dh EQU [02bH]
+  38  0000              __stm0dl EQU [02aH]
+  38  0000              __stm0c1 EQU [029H]
+  38  0000              __stm0c0 EQU [028H]
+  38  0000              __pasr EQU [026H]
+  38  0000              __rstc EQU [025H]
+  38  0000              __sadc2 EQU [024H]
+  38  0000              __sadc1 EQU [023H]
+  38  0000              __sadc0 EQU [022H]
+  38  0000              __sadoh EQU [021H]
+  38  0000              __sadol EQU [020H]
+  38  0000              __eed EQU [01fH]
+  38  0000              __eea EQU [01eH]
+  38  0000              __smod1 EQU [01cH]
+  38  0000              __tbc EQU [01bH]
+  38  0000              __wdtc EQU [019H]
+  38  0000              __ifs0 EQU [018H]
+  38  0000              __pawu EQU [017H]
+  38  0000              __papu EQU [016H]
+  38  0000              __pac EQU [015H]
+  38  0000              __pa EQU [014H]
+  38  0000              __mfi0 EQU [011H]
+  38  0000              __intc1 EQU [0fH]
+  38  0000              __intc0 EQU [0eH]
+  38  0000              __integ EQU [0dH]
+  38  0000              __smod EQU [0bH]
+  38  0000              __status EQU [0aH]
+  38  0000              __tblh EQU [08H]
+  38  0000              __tblp EQU [07H]
+  38  0000              __pcl EQU [06H]
+  38  0000              __acc EQU [05H]
+  38  0000              __bp EQU [04H]
+  38  0000              __mp1 EQU [03H]
+  38  0000              __iar1 EQU [02H]
+  38  0000              __mp0 EQU [01H]
+  38  0000              __iar0 EQU [00H]
+  38  0000              @TimeBase_Init .SECTION 'CODE'
+  38  0000              PUBLIC _TimeBase_Init
+  38  0000              _TimeBase_Init PROC
+
+;  48: 			_tbck = 1; 
+  48  0000  331B        SET [01BH].6
+
+;  73: 			_tb02 = 0;	_tb01 = 1;	_tb00 = 1;
+  73  0001  351B        CLR [01BH].2
+  73  0002  309B        SET [01BH].1
+  73  0003  301B        SET [01BH].0
+
+; 118: 			_tb11 = 1;	_tb10 = 1;
+ 118  0004  329B        SET [01BH].5
+ 118  0005  321B        SET [01BH].4
+ 118  0006              L5:
+ 118  0006  0003        RET
+ 118  0007              _TimeBase_Init ENDP
+"File: HT8_TimeBase.c  Holtek Cross-Assembler  Version 3.00      Page 2 
+
+
+
+        0 Errors

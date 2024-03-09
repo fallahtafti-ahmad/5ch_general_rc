@@ -1,0 +1,239 @@
+
+Linker Version 8.7.7.220718
+Input Object File: C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ
+Input Object File: C:\Users\111\Documents\HTK_Project\car2\HT8_EXTI.OBJ
+Input Object File: C:\Users\111\Documents\HTK_Project\car2\HT8_IT.OBJ
+Input Object File: C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ
+Input Object File: C:\Users\111\Documents\HTK_Project\car2\HT8_SYS_CLOCK.OBJ
+Input Object File: C:\Users\111\Documents\HTK_Project\car2\HT8_TIMEBASE.OBJ
+Input Object File: C:\Users\111\Documents\HTK_Project\car2\HT8_WDT.OBJ
+
+Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\MATH6.LIB
+Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\time_mrsc.lib
+Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\ctype_mrsc.lib
+Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\math_mrsc.lib
+Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\stdlib_mrsc.lib
+Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\string_mrsc.lib
+
+
+     Bank    Start     End      Length     Class    AvgIns    Name
+     00h     0000h     0002h    0003h      CODE               @CODE (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0003h     0003h    0001h      CODE               STARTSEC (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0004h     0004h    0001h      CODE               @@INT_ISR (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0005h     0007h    0003h      CODE               @turn_right (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0008h     0008h    0001h      CODE               @@TB0_ISR (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0009h     000bh    0003h      CODE               @turn_left (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     000ch     000ch    0001h      CODE               @@TB1_ISR (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     000dh     000fh    0003h      CODE               @stop (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0010h     0010h    0001h      CODE               @@Timer_ISR (C:\Users\111\Documents\HTK_Project\car2\HT8_IT.OBJ)
+     00h     0011h     0012h    0002h      CODE               @Led_on (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0014h     0014h    0001h      CODE               @@EEPROM_ISR (C:\Users\111\Documents\HTK_Project\car2\HT8_IT.OBJ)
+     00h     0015h     0016h    0002h      CODE               @Led_off (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0018h     0018h    0001h      CODE               @@ADC_ISR (C:\Users\111\Documents\HTK_Project\car2\HT8_IT.OBJ)
+     00h     0019h     0026h    000eh      CODE               __DELAY (C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\MATH6.LIB)
+     00h     0027h     01e1h    01bbh      CODE               @INT_ISR (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     01e2h     0202h    0021h      CODE               @TB0_ISR (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0203h     020dh    000bh      CODE               @TB1_ISR (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     020eh     0270h    0063h      CODE               @MAIN (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0271h     02cdh    005dh      CODE               @Buzzing (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     02ceh     02d6h    0009h      CODE               @EXIT_Init (C:\Users\111\Documents\HTK_Project\car2\HT8_EXTI.OBJ)
+     00h     02d7h     02ddh    0007h      CODE               @STM_Init (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     02deh     02e1h    0004h      CODE               @STM_PwmOutputConfig (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     02e2h     030dh    002ch      CODE               @STM_PwmUpdate (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     030eh     0310h    0003h      CODE               @STM_SinglePulseOutputConfig (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     0311h     031eh    000eh      CODE               @STM_SinglePulseUpdate (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     031fh     0344h    0026h      CODE               @STM_CounterModeConfig (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     0345h     0347h    0003h      CODE               @STM_CompareMatchOutputConfig (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     0348h     0370h    0029h      CODE               @STM_CompareMatchOutputUpdate (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     0371h     0372h    0002h      CODE               @SysClockDivision_Init (C:\Users\111\Documents\HTK_Project\car2\HT8_SYS_CLOCK.OBJ)
+     00h     0373h     0379h    0007h      CODE               @TimeBase_Init (C:\Users\111\Documents\HTK_Project\car2\HT8_TIMEBASE.OBJ)
+     00h     037ah     037dh    0004h      CODE               @WDT_Init (C:\Users\111\Documents\HTK_Project\car2\HT8_WDT.OBJ)
+     00h     0040h     0044h    0005h      DATA     16.6      @INT_ISR (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0045h     0046h    0002h      DATA     2         @TB0_ISR (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0047h     0051h    000bh      DATA     2.3636    CTMPDATA (C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\MATH6.LIB)
+     00h     0057h     0058h    0002h      DATA     0         @h (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0059h     005ah    0002h      DATA     0         @b (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     005bh     005ch    0002h      DATA     0         @f (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     005dh     005eh    0002h      DATA     0         @bit_in (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     005fh     0060h    0002h      DATA     0         @dev (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0061h     0062h    0002h      DATA     0         @diff (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0063h     0064h    0002h      DATA     0         @cnt (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0065h     0066h    0002h      DATA     0         @buzz (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0067h     0068h    0002h      DATA     0         @t1 (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0069h     006ah    0002h      DATA     0         @t0 (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     006bh     006ch    0002h      DATA     0         @p (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     006dh     006eh    0002h      DATA     0         @j (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     006fh     0070h    0002h      DATA     0         @i (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+
+     Local Sections
+
+     Bank    Start     End      Length     Class    AvgIns    Name
+     00h     0052h     0052h    0000h      LOCAL    0         _INT_ISR (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0052h     0052h    0000h      LOCAL    0         _turn_right (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0052h     0052h    0000h      LOCAL    0         _Led_on (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0052h     0052h    0000h      LOCAL    0         _turn_left (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0052h     0052h    0000h      LOCAL    0         _stop (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0052h     0052h    0000h      LOCAL    0         _Led_off (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0056h     0056h    0000h      LOCAL    0         @DUMMY (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0054h     0055h    0002h      LOCAL    2         _main (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0052h     0052h    0000h      LOCAL    0         _SysClockDivision_Init (C:\Users\111\Documents\HTK_Project\car2\HT8_SYS_CLOCK.OBJ)
+     00h     0052h     0052h    0000h      LOCAL    0         _STM_Init (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     0052h     0052h    0000h      LOCAL    0         _TimeBase_Init (C:\Users\111\Documents\HTK_Project\car2\HT8_TIMEBASE.OBJ)
+     00h     0052h     0053h    0002h      LOCAL    4         _Buzzing (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0052h     0052h    0000h      LOCAL    0         _EXIT_Init (C:\Users\111\Documents\HTK_Project\car2\HT8_EXTI.OBJ)
+
+     Indepentent Local Sections
+
+     Bank    Start     End      Length     Class    AvgIns    Name
+     00h     0052h     0052h    0000h      ILOCAL   0         _TB0_ISR (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0052h     0052h    0000h      ILOCAL   0         _TB1_ISR (C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ)
+     00h     0052h     0052h    0000h      ILOCAL   0         _STM_PwmOutputConfig (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     0052h     0056h    0005h      ILOCAL   4.2       _STM_PwmUpdate (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     0052h     0052h    0000h      ILOCAL   0         _STM_SinglePulseOutputConfig (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     0052h     0055h    0004h      ILOCAL   2.25      _STM_SinglePulseUpdate (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     0052h     0055h    0004h      ILOCAL   4.75      _STM_CounterModeConfig (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     0052h     0052h    0000h      ILOCAL   0         _STM_CompareMatchOutputConfig (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     0052h     0055h    0004h      ILOCAL   4.75      _STM_CompareMatchOutputUpdate (C:\Users\111\Documents\HTK_Project\car2\HT8_STM.OBJ)
+     00h     0052h     0052h    0000h      ILOCAL   0         _WDT_Init (C:\Users\111\Documents\HTK_Project\car2\HT8_WDT.OBJ)
+     00h     0052h     0052h    0000h      ILOCAL   0         __DELAYY (C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\MATH6.LIB)
+
+     Public Symbols Information
+     Address            Public by Name
+     0047h              RH
+     0056h              STM_PwmUpdate0
+     0058h              STM_PwmUpdate1
+     0048h              V1A
+     004bh              V1BP
+     004ah              V1MP1
+     0049h              V1S
+     004ch              V2A
+     004fh              V2BP
+     004eh              V2MP1
+     004dh              V2S
+     0050h              V3A
+     0051h              V3S
+     0271h              _Buzzing
+     02ceh              _EXIT_Init
+     0015h              _Led_off
+     0011h              _Led_on
+     0345h              _STM_CompareMatchOutputConfig
+     0348h              _STM_CompareMatchOutputUpdate
+     031fh              _STM_CounterModeConfig
+     02d7h              _STM_Init
+     02deh              _STM_PwmOutputConfig
+     02e2h              _STM_PwmUpdate
+     030eh              _STM_SinglePulseOutputConfig
+     0311h              _STM_SinglePulseUpdate
+     0371h              _SysClockDivision_Init
+     0373h              _TimeBase_Init
+     037ah              _WDT_Init
+     001eh              __DELAYY0
+     001dh              __DELAYY1
+     001ch              __DELAYY2
+     001bh              __DELAYY3
+     001ah              __DELAYY4
+     0019h              __DELAYY5
+     0059h              _b
+     005dh              _bit_in
+     0065h              _buzz
+     0063h              _cnt
+     005fh              _dev
+     0061h              _diff
+     005bh              _f
+     0057h              _h
+     006fh              _i
+     006dh              _j
+     006bh              _p
+     000dh              _stop
+     0069h              _t0
+     0067h              _t1
+     0009h              _turn_left
+     0005h              _turn_right
+
+     Address            Public by Value
+     0005h              _turn_right
+     0009h              _turn_left
+     000dh              _stop
+     0011h              _Led_on
+     0015h              _Led_off
+     0019h              __DELAYY5
+     001ah              __DELAYY4
+     001bh              __DELAYY3
+     001ch              __DELAYY2
+     001dh              __DELAYY1
+     001eh              __DELAYY0
+     0047h              RH
+     0048h              V1A
+     0049h              V1S
+     004ah              V1MP1
+     004bh              V1BP
+     004ch              V2A
+     004dh              V2S
+     004eh              V2MP1
+     004fh              V2BP
+     0050h              V3A
+     0051h              V3S
+     0056h              STM_PwmUpdate0
+     0057h              _h
+     0058h              STM_PwmUpdate1
+     0059h              _b
+     005bh              _f
+     005dh              _bit_in
+     005fh              _dev
+     0061h              _diff
+     0063h              _cnt
+     0065h              _buzz
+     0067h              _t1
+     0069h              _t0
+     006bh              _p
+     006dh              _j
+     006fh              _i
+     0271h              _Buzzing
+     02ceh              _EXIT_Init
+     02d7h              _STM_Init
+     02deh              _STM_PwmOutputConfig
+     02e2h              _STM_PwmUpdate
+     030eh              _STM_SinglePulseOutputConfig
+     0311h              _STM_SinglePulseUpdate
+     031fh              _STM_CounterModeConfig
+     0345h              _STM_CompareMatchOutputConfig
+     0348h              _STM_CompareMatchOutputUpdate
+     0371h              _SysClockDivision_Init
+     0373h              _TimeBase_Init
+     037ah              _WDT_Init
+
+
+ROM Usage Statistics
+     Size      Used     Percentage
+     0400h     037ch    87%
+
+RAM Usage Statistics
+    Bank      Size      Used     Percentage
+     00h       0040h     0031h    76%
+     Total     0040h     0031h    76%
+
+Use Stack Count
+_INT_ISR: 1
+_main: 1
+
+Call Tree
+    _INT_ISR
+        _turn_right (0)
+        _Led_on (0)
+        _turn_left (0)
+        _stop (0)
+        _Led_off (0)
+    @DUMMY
+        _main (0)
+            _SysClockDivision_Init (1)
+            _STM_Init (1)
+            _TimeBase_Init (1)
+            _Led_on (1)
+            _Buzzing (1)
+            _Led_off (1)
+            _EXIT_Init (1)
+            _stop (1)
+
+HLINK: Program entry point at section '@CODE' (address 0) of file 'C:\Users\111\Documents\HTK_Project\car2\CAR2.OBJ'
+
+Total 0 error(s), Total 0 Warning(s)

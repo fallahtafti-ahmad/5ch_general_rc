@@ -1,0 +1,303 @@
+"File: HT8_STM.c     Holtek Cross-Assembler  Version 3.00      Page 1
+
+
+
+;  41: {
+  41  0000              __stm0ah EQU [02dH]
+  41  0000              __stm0al EQU [02cH]
+  41  0000              __stm0dh EQU [02bH]
+  41  0000              __stm0dl EQU [02aH]
+  41  0000              __stm0c1 EQU [029H]
+  41  0000              __stm0c0 EQU [028H]
+  41  0000              __pasr EQU [026H]
+  41  0000              __rstc EQU [025H]
+  41  0000              __sadc2 EQU [024H]
+  41  0000              __sadc1 EQU [023H]
+  41  0000              __sadc0 EQU [022H]
+  41  0000              __sadoh EQU [021H]
+  41  0000              __sadol EQU [020H]
+  41  0000              __eed EQU [01fH]
+  41  0000              __eea EQU [01eH]
+  41  0000              __smod1 EQU [01cH]
+  41  0000              __tbc EQU [01bH]
+  41  0000              __wdtc EQU [019H]
+  41  0000              __ifs0 EQU [018H]
+  41  0000              __pawu EQU [017H]
+  41  0000              __papu EQU [016H]
+  41  0000              __pac EQU [015H]
+  41  0000              __pa EQU [014H]
+  41  0000              __mfi0 EQU [011H]
+  41  0000              __intc1 EQU [0fH]
+  41  0000              __intc0 EQU [0eH]
+  41  0000              __integ EQU [0dH]
+  41  0000              __smod EQU [0bH]
+  41  0000              __status EQU [0aH]
+  41  0000              __tblh EQU [08H]
+  41  0000              __tblp EQU [07H]
+  41  0000              __pcl EQU [06H]
+  41  0000              __acc EQU [05H]
+  41  0000              __bp EQU [04H]
+  41  0000              __mp1 EQU [03H]
+  41  0000              __iar1 EQU [02H]
+  41  0000              __mp0 EQU [01H]
+  41  0000              __iar0 EQU [00H]
+  41  0000              @STM_Init .SECTION 'CODE'
+  41  0000              PUBLIC _STM_Init
+  41  0000              _STM_Init PROC
+
+;  79: 		_st0m1 = 0; _st0m0 = 0;
+  79  0000  37A9        CLR [029H].7
+  79  0001  3729        CLR [029H].6
+
+;  82: 			_pas5 = 0; _pas4 = 1;
+  82  0002  36A6        CLR [026H].5
+  82  0003  3226        SET [026H].4
+
+;  88: 			_pas7 = 0; _pas6 = 1;
+  88  0004  37A6        CLR [026H].7
+  88  0005  3326        SET [026H].6
+
+; 114: 		_st0ck2 = 0; _st0ck1 = 0; _st0ck0 = 1;	//Select STM Counter clock Fsys
+ 114  0006  3728        CLR [028H].6
+"File: HT8_STM.c     Holtek Cross-Assembler  Version 3.00      Page 2 
+
+ 114  0007  36A8        CLR [028H].5
+ 114  0008  3228        SET [028H].4
+
+; 152: 		_st0cclr = 1;	//STM Counter Clear condition selection STM Comparator A match		
+ 152  0009  3029        SET [029H].0
+ 152  000A              L5:
+ 152  000A  0003        RET
+ 152  000B              _STM_Init ENDP
+
+; 169: {
+ 169  0000              @STM_PwmOutputConfig .SECTION 'CODE'
+ 169  0000              PUBLIC _STM_PwmOutputConfig
+ 169  0000              _STM_PwmOutputConfig PROC
+
+; 174: 		_st0oc = 1;					//active high
+ 174  0000  31A9        SET [029H].3
+
+; 180: 		_st0pol = 0;					//no inverted
+ 180  0001  3529        CLR [029H].2
+
+; 190: 		_st0dpx = 1;
+ 190  0002  30A9        SET [029H].1
+ 190  0003              L6:
+ 190  0003  0003        RET
+ 190  0004              _STM_PwmOutputConfig ENDP
+
+; 203: {
+ 203  0000              @STM_PwmUpdate .SECTION 'CODE'
+ 203  0000              PUBLIC _STM_PwmUpdate
+ 203  0000              _STM_PwmUpdate PROC
+
+; 202: void STM_PwmUpdate(u16 TempCCRA,u8 TempCCRP)
+ 202  0000              PUBLIC STM_PwmUpdate0
+ 202  0000  0002[       LOCAL STM_PwmUpdate0 DB 2 DUP (?) ; TempCCRA
+            00
+            ]
+ 202  0000              PUBLIC STM_PwmUpdate1
+ 202  0002  00          LOCAL STM_PwmUpdate1 DB ? ; TempCCRP
+
+; 204: 	_stm0al = TempCCRA & 0x00ff;	//
+ 204  0000  0700     R  MOV A,STM_PwmUpdate0
+ 204  0001  0EFF        AND A,0ffh
+ 204  0002  0080     R  MOV b0_3,A
+ 204  0003  0700     R  MOV A,STM_PwmUpdate0[1]
+ 204  0004  0E00        AND A,00h
+ 204  0005  0080     R  MOV b0_3[1],A
+ 204  0006  0700     R  MOV A,b0_3
+ 204  0007  00AC        MOV __stm0al,A
+
+; 205: 	_stm0ah = TempCCRA >> 8;		//
+ 205  0008  0700     R  MOV A,STM_PwmUpdate0[1]
+ 205  0009  0080     R  MOV b0_3,A
+ 205  000A  1F00     R  CLR b0_3[1]
+ 205  000B  0700     R  MOV A,b0_3
+ 205  000C  00AD        MOV __stm0ah,A
+
+; 207: 	_st0rp2 = (TempCCRP>>2) & 0x01;			
+ 207  000D  340A        CLR [0AH].0
+ 207  000E  1B00     R  RRCA STM_PwmUpdate1
+ 207  000F  0080     R  MOV b0_3,A
+"File: HT8_STM.c     Holtek Cross-Assembler  Version 3.00      Page 3 
+
+ 207  0010  340A        CLR [0AH].0
+ 207  0011  1B80     R  RRC b0_3
+ 207  0012  0F01        MOV A,01h
+ 207  0013  0680     R  ANDM A,b0_3
+ 207  0014  0728        MOV A,[028H]
+ 207  0015  3505        CLR [05H].2
+ 207  0016  1080     R  SZ b0_3
+ 207  0017  3105        SET [05H].2
+ 207  0018  00A8        MOV [028H],A
+
+; 208: 	_st0rp1 = (TempCCRP>>1) & 0x01;	
+ 208  0019  340A        CLR [0AH].0
+ 208  001A  1B00     R  RRCA STM_PwmUpdate1
+ 208  001B  0080     R  MOV b0_3,A
+ 208  001C  0F01        MOV A,01h
+ 208  001D  0680     R  ANDM A,b0_3
+ 208  001E  0728        MOV A,[028H]
+ 208  001F  3485        CLR [05H].1
+ 208  0020  1080     R  SZ b0_3
+ 208  0021  3085        SET [05H].1
+ 208  0022  00A8        MOV [028H],A
+
+; 209: 	_st0rp0 = TempCCRP & 0x01;	
+ 209  0023  0700     R  MOV A,STM_PwmUpdate1
+ 209  0024  0E01        AND A,01h
+ 209  0025  0080     R  MOV b0_3,A
+ 209  0026  0728        MOV A,[028H]
+ 209  0027  3405        CLR [05H].0
+ 209  0028  1080     R  SZ b0_3
+ 209  0029  3005        SET [05H].0
+ 209  002A  00A8        MOV [028H],A
+ 209  002B              L7:
+ 209  002B  0003        RET
+ 209  0003  0002[       LOCAL b0_3 DB 2 DUP(?)
+            00
+            ]
+ 209  002C              _STM_PwmUpdate ENDP
+
+; 223: {
+ 223  0000              @STM_SinglePulseOutputConfig .SECTION 'CODE'
+ 223  0000              PUBLIC _STM_SinglePulseOutputConfig
+ 223  0000              _STM_SinglePulseOutputConfig PROC
+
+; 228: 		_st0oc = 1;					//active high
+ 228  0000  31A9        SET [029H].3
+
+; 234: 		_st0pol = 0;					//no inverted
+ 234  0001  3529        CLR [029H].2
+ 234  0002              L8:
+ 234  0002  0003        RET
+ 234  0003              _STM_SinglePulseOutputConfig ENDP
+
+; 262: {
+ 262  0000              @STM_SinglePulseUpdate .SECTION 'CODE'
+ 262  0000              PUBLIC _STM_SinglePulseUpdate
+ 262  0000              _STM_SinglePulseUpdate PROC
+
+; 261: void STM_SinglePulseUpdate(u16 TempCCRA)
+ 261  0000              PUBLIC STM_SinglePulseUpdate0
+ 261  0000  0002[       LOCAL STM_SinglePulseUpdate0 DB 2 DUP (?) ; TempCCRA
+"File: HT8_STM.c     Holtek Cross-Assembler  Version 3.00      Page 4 
+
+            00
+            ]
+
+; 263: 	_stm0al = TempCCRA & 0x00ff;	//
+ 263  0000  0700     R  MOV A,STM_SinglePulseUpdate0
+ 263  0001  0EFF        AND A,0ffh
+ 263  0002  0080     R  MOV b0_5,A
+ 263  0003  0700     R  MOV A,STM_SinglePulseUpdate0[1]
+ 263  0004  0E00        AND A,00h
+ 263  0005  0080     R  MOV b0_5[1],A
+ 263  0006  0700     R  MOV A,b0_5
+ 263  0007  00AC        MOV __stm0al,A
+
+; 264: 	_stm0ah = TempCCRA >> 8;		//
+ 264  0008  0700     R  MOV A,STM_SinglePulseUpdate0[1]
+ 264  0009  0080     R  MOV b0_5,A
+ 264  000A  1F00     R  CLR b0_5[1]
+ 264  000B  0700     R  MOV A,b0_5
+ 264  000C  00AD        MOV __stm0ah,A
+ 264  000D              L9:
+ 264  000D  0003        RET
+ 264  0002  0002[       LOCAL b0_5 DB 2 DUP(?)
+            00
+            ]
+ 264  000E              _STM_SinglePulseUpdate ENDP
+
+; 274: {
+ 274  0000              @STM_CounterModeConfig .SECTION 'CODE'
+ 274  0000              PUBLIC _STM_CounterModeConfig
+ 274  0000              _STM_CounterModeConfig PROC
+
+; 273: void STM_CounterModeConfig(u16 TempPeriod)
+ 273  0000              PUBLIC STM_CounterModeConfig0
+ 273  0000  0002[       LOCAL STM_CounterModeConfig0 DB 2 DUP (?) ; TempPeriod
+            00
+            ]
+
+; 276: 	_stm0al = TempPeriod & 0x00ff;	//
+ 276  0000  0700     R  MOV A,STM_CounterModeConfig0
+ 276  0001  0EFF        AND A,0ffh
+ 276  0002  0080     R  MOV b0_6,A
+ 276  0003  0700     R  MOV A,STM_CounterModeConfig0[1]
+ 276  0004  0E00        AND A,00h
+ 276  0005  0080     R  MOV b0_6[1],A
+ 276  0006  0700     R  MOV A,b0_6
+ 276  0007  00AC        MOV __stm0al,A
+
+; 277: 	_stm0ah = TempPeriod >> 8;		//
+ 277  0008  0700     R  MOV A,STM_CounterModeConfig0[1]
+ 277  0009  0080     R  MOV b0_6,A
+ 277  000A  1F00     R  CLR b0_6[1]
+ 277  000B  0700     R  MOV A,b0_6
+ 277  000C  00AD        MOV __stm0ah,A
+ 277  000D              L10:
+ 277  000D  0003        RET
+ 277  0002  0002[       LOCAL b0_6 DB 2 DUP(?)
+            00
+            ]
+ 277  000E              _STM_CounterModeConfig ENDP
+
+; 296: {
+"File: HT8_STM.c     Holtek Cross-Assembler  Version 3.00      Page 5 
+
+ 296  0000              @STM_CompareMatchOutputConfig .SECTION 'CODE'
+ 296  0000              PUBLIC _STM_CompareMatchOutputConfig
+ 296  0000              _STM_CompareMatchOutputConfig PROC
+
+; 308: 		_st0io1 = 1; _st0io0 = 1;	//
+ 308  0000  32A9        SET [029H].5
+ 308  0001  3229        SET [029H].4
+
+; 314: 		_st0oc = 0;				//
+ 314  0002  35A9        CLR [029H].3
+
+; 322: 		_st0pol = 0;				//
+ 322  0003  3529        CLR [029H].2
+ 322  0004              L11:
+ 322  0004  0003        RET
+ 322  0005              _STM_CompareMatchOutputConfig ENDP
+
+; 336: {
+ 336  0000              @STM_CompareMatchOutputUpdate .SECTION 'CODE'
+ 336  0000              PUBLIC _STM_CompareMatchOutputUpdate
+ 336  0000              _STM_CompareMatchOutputUpdate PROC
+
+; 335: void STM_CompareMatchOutputUpdate(u16 TempMatchTime)
+ 335  0000              PUBLIC STM_CompareMatchOutputUpdate0
+ 335  0000  0002[       LOCAL STM_CompareMatchOutputUpdate0 DB 2 DUP (?) ; TempMatchTime
+            00
+            ]
+
+; 338: 	_stm0al = TempMatchTime & 0x00ff;	//
+ 338  0000  0700     R  MOV A,STM_CompareMatchOutputUpdate0
+ 338  0001  0EFF        AND A,0ffh
+ 338  0002  0080     R  MOV b0_8,A
+ 338  0003  0700     R  MOV A,STM_CompareMatchOutputUpdate0[1]
+ 338  0004  0E00        AND A,00h
+ 338  0005  0080     R  MOV b0_8[1],A
+ 338  0006  0700     R  MOV A,b0_8
+ 338  0007  00AC        MOV __stm0al,A
+
+; 339: 	_stm0ah = TempMatchTime >> 8;		//
+ 339  0008  0700     R  MOV A,STM_CompareMatchOutputUpdate0[1]
+ 339  0009  0080     R  MOV b0_8,A
+ 339  000A  1F00     R  CLR b0_8[1]
+ 339  000B  0700     R  MOV A,b0_8
+ 339  000C  00AD        MOV __stm0ah,A
+ 339  000D              L12:
+ 339  000D  0003        RET
+ 339  0002  0002[       LOCAL b0_8 DB 2 DUP(?)
+            00
+            ]
+ 339  000E              _STM_CompareMatchOutputUpdate ENDP
+
+
+        0 Errors
