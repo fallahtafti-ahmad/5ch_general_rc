@@ -64,6 +64,7 @@ void main()
 	_pawu7=1;
 	_pawu1=1;
 	_pawu0=1;
+	
 	_pac6=1;
 	_papu6=1;
 	_pac7=1;
@@ -72,8 +73,7 @@ void main()
 	_pac0=1;
 	_papu1=1;
 	_papu0=1;
-	_pac5=1;
-	_papu5=1;
+	
 	/* initialization STM IP */
 	STM_Init();
 	
@@ -93,7 +93,9 @@ void main()
 	STM_CompareMatchOutputConfig();
 	STM_CompareMatchOutputUpdate(g_nCCRA);
 	_delay(20000);	//wait system stable
-	
+	_pawu5=1;
+	_pac5=1;
+	_papu5=1;
 	//system loop
 	while(1)
 	{
@@ -202,6 +204,8 @@ void main()
 		send_sink();
 		send_sink();
 		if (!fr){
+			stop=0;
+			r=0;
 			send_one();
 			//send_zero();
 			}else{
