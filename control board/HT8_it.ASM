@@ -1,5 +1,5 @@
 #pragma debug scope 1 1
-#line 75 "C:\Users\111\Documents\HTK_Project\car2\HT8_it.c"
+#line 75 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_it.c"
 __stm0ah EQU [02dH]
 __stm0al EQU [02cH]
 __stm0dh EQU [02bH]
@@ -40,9 +40,9 @@ __mp0 EQU [01H]
 __iar0 EQU [00H]
 @@Timer_ISR .SECTION AT 010H 'CODE'
 RETI
-#line 88 "C:\Users\111\Documents\HTK_Project\car2\HT8_it.c"
+#line 88 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_it.c"
 @@EEPROM_ISR .SECTION AT 014H 'CODE'
 RETI
-#line 101 "C:\Users\111\Documents\HTK_Project\car2\HT8_it.c"
+#line 101 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_it.c"
 @@ADC_ISR .SECTION AT 018H 'CODE'
 RETI

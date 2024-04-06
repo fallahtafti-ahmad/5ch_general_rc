@@ -1,5 +1,5 @@
 #pragma debug scope 1 1
-#line 43 "C:\Users\111\Documents\HTK_Project\car2\HT8_WDT.c"
+#line 43 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_WDT.c"
 __stm0ah EQU [02dH]
 __stm0al EQU [02cH]
 __stm0dh EQU [02bH]
@@ -41,12 +41,12 @@ __iar0 EQU [00H]
 @WDT_Init .SECTION 'CODE'
 PUBLIC _WDT_Init
 _WDT_Init PROC
-#pragma debug scope 2 1 ; 54 "C:\Users\111\Documents\HTK_Project\car2\HT8_WDT.c"
-#line 54 "C:\Users\111\Documents\HTK_Project\car2\HT8_WDT.c"
+#pragma debug scope 2 1 ; 54 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_WDT.c"
+#line 54 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_WDT.c"
 CLR [019H].2
-#line 54 "C:\Users\111\Documents\HTK_Project\car2\HT8_WDT.c"
+#line 54 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_WDT.c"
 SET [019H].1
-#line 54 "C:\Users\111\Documents\HTK_Project\car2\HT8_WDT.c"
+#line 54 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_WDT.c"
 SET [019H].0
 L5:
 RET

@@ -3,7 +3,7 @@
 #define C2 _pa1
 #define C3 _pa7
 #define C4 _pa6
-#define d _pa5
+#define C5 _pa5
 #define sig _pa2
 
 
@@ -11,10 +11,13 @@
 int i,j,p;
 int t0,t1,buzz,cnt;
 int diff;
-int dev,bit_in,f,b,h;
-void turn_right();
-void turn_left();
-void stop();
+int fl,bit_in,fr,bl,br,h;
+void turn_rightr();
+void turn_leftr();
+void turn_rightl();
+void turn_leftl();
+void stopr();
+void stopl();
 void Led_on();
 void Led_off();
 void Buzzing();
@@ -39,24 +42,32 @@ void INT_ISR(void)
 				}else if(t1>512){
 					p++;
 					bit_in=0;
-					}else if(t1>256){p=0;}
+					}else if(t1>150){p=0;}
 			if(p==1){
-				if(bit_in){dev=1;}else{dev=0;}
+				//if(bit_in){fr=1;}else{fr=0;}
+				fr=bit_in;
 				}
 			if(p==2){
-				if(bit_in){f=1;}else{f=0;}
+				//if(bit_in){fl=1;}else{fl=0;}
+				fl=bit_in;
 				}
 			if(p==3){
-				if(bit_in){b=1;}else{b=0;}
+				//if(bit_in){br=1;}else{br=0;}
+				br=bit_in;
 				}
 			if(p==4){
-				if(bit_in){h=1;}else{h=0;}
+				//if(bit_in){bl=1;}else{bl=0;}
+				bl=bit_in;
 				}
-			if(p==4){
-				if(dev & !d){}else{
-					if(f){turn_right();Led_on();}else if(b){turn_left();Led_on();}else{stop();Led_off();}
+			if(p==5){
+				//if(bit_in){h=1;}else{h=0;}
+				h=bit_in;
+				}
+			if(p==5){
+					if(fr){turn_rightr();}else if(br){turn_leftr();}else{stopr();}
+					if(fl){turn_rightl();}else if(bl){turn_leftl();}else{stopl();}
 					if(h){buzz=1;}else{buzz=0;}
-					}
+					p=0;
 				}
 		}
 			/*
@@ -107,17 +118,24 @@ void TB1_ISR(void)
 
 void main()
 {
+	C1=0;
+	C2=0;
+	C3=0;
 	C4=0;
+	C5=0;
 	_pac0=0;
 	_pac1=0;
 	_pac7=0;
 	_pac6=0;
+	_pac5=0;
 	_pac2=1;
-	_pac5=1;
+
 	_papu0=1;
 	_papu1=1;
 	_papu2=1;
 	_papu5=1;
+	_papu6=1;
+	_papu7=1;
 	_pawu2=1;
 	SysClockDivision_Init();
 	//EXIT_Init();
@@ -135,23 +153,32 @@ void main()
 	TB1_CLEAR_FLAG();
 	TimeBase_Init();
 	//stop();
-	Led_on();
+	/*Led_on();
 	Buzzing();
-	Led_off();
+	Led_off();*/
 	EXIT_Init();
 	INT_ISR_ENABLE();
 	EMI_ENABLE();
 	t0=0;
 	buzz=0;
-	stop();
-	
+	turn_leftl();
+	_delay(263690);
+	turn_leftr();
+	_delay(263690);
+	turn_rightl();
+	_delay(263690);
+	turn_rightr();
+	_delay(263690);
+	stopr();
+	stopl();
 	while(1){
 		cnt++;
 		if(cnt>20000)
 		{
 			cnt=0;
 			C1=0;C2=0;
-		Led_off();
+			C4=0;C5=0;
+		
 		buzz=0;
 		_delay(3050);
 		_halt();}
@@ -161,18 +188,32 @@ void main()
 
 
 
-void turn_right(){
+void turn_rightr(){
 	C1=0;
 	C2=1;
 }
-void turn_left(){
+void turn_leftr(){
 	C1=1;
 	C2=0;
 	
 }
-void stop(){
-	C1=1;
-	C2=1;	
+void turn_rightl(){
+	C4=0;
+	C5=1;
+}
+void turn_leftl(){
+	C4=1;
+	C5=0;
+	
+}
+void stopr(){
+	C1=0;
+	C2=0;
+
+}
+void stopl(){
+	C4=0;
+	C5=0;	
 
 }
 void Led_on(){

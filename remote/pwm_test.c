@@ -202,7 +202,7 @@ void main()
 		}
 		*/
 		send_sink();
-		send_sink();
+		//send_sink();
 		if (!fr){
 			stop=0;
 			r=0;
@@ -251,7 +251,7 @@ void main()
 		
 		_delay(200000);
 		
-		
+		/*
 		if(stop){
 		if(r<3){
 		r++;
@@ -277,14 +277,14 @@ void main()
 		//send_sink();
 		_delay(120000);
 		*/
-			}else{
+			/*}else{
 		_idlen=0;
 		_wdtc=175;
 		_halt();
 		_delay(240000);
 		_wdtc=80;
 		}
-		}
+		}*/
 		//
 			
 		_clrwdt();

@@ -1,5 +1,5 @@
 #pragma debug scope 1 1
-#line 42 "C:\Users\111\Documents\HTK_Project\car2\HT8_SYS_Clock.c"
+#line 42 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_SYS_Clock.c"
 __stm0ah EQU [02dH]
 __stm0al EQU [02cH]
 __stm0dh EQU [02bH]
@@ -41,8 +41,8 @@ __iar0 EQU [00H]
 @SysClockDivision_Init .SECTION 'CODE'
 PUBLIC _SysClockDivision_Init
 _SysClockDivision_Init PROC
-#pragma debug scope 2 1 ; 44 "C:\Users\111\Documents\HTK_Project\car2\HT8_SYS_Clock.c"
-#line 44 "C:\Users\111\Documents\HTK_Project\car2\HT8_SYS_Clock.c"
+#pragma debug scope 2 1 ; 44 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_SYS_Clock.c"
+#line 44 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_SYS_Clock.c"
 SET [0BH].0
 L5:
 RET

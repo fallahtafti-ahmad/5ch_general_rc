@@ -129,8 +129,6 @@ MOV A,1
 MOV [02H],A
 #line 204 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
 CALL _send_sink
-#line 205 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-CALL _send_sink
 #line 206 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
 SZ [014H].0
 JMP L9
@@ -281,75 +279,7 @@ MOV A,0c2H
 MOV RH,A
 MOV A,0edH
 CALL __DELAYY3
-#line 255 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-MOV A,BANK _stop
-MOV [04H],A
-MOV A,OFFSET _stop
-MOV [03H],A
-SZ [02H]
-JMP L23
-JMP L19
-L23:
-#pragma debug scope 14 3 ; 256 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-#line 256 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-MOV A,BANK _r
-MOV [04H],A
-MOV A,OFFSET _r
-MOV [03H],A
-MOV A,[02H]
-MOV b0_1,A
-INC [03H]
-MOV A,[02H]
-MOV b0_1[1],A
-MOV A,80h
-XOR A,b0_1[1]
-MOV RH,A
-MOV A,080h
-SUB A,RH
-SNZ [0AH].0
-JMP L21
-SNZ [0AH].2
-JMP L24
-MOV A,b0_1
-SUB A,03h
-SZ [0AH].0
-JMP L21
-L24:
-#pragma debug scope 15 14 ; 257 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-#line 257 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-MOV A,BANK _r
-MOV [04H],A
-MOV A,OFFSET _r
-MOV [03H],A
-MOV A,01h
-ADDM A,[02H]
-MOV A,00h
-INC [03H]
-ADCM A,[02H]
-#line 280 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-#pragma debug scope 14 3 ; 280 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-JMP L22
-L21:
-#pragma debug scope 16 14 ; 281 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-#line 281 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-CLR [0BH].1
-#line 282 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-MOV A,0afh
-MOV __wdtc,A
-#line 283 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-HALT
-#line 284 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-MOV A,0e9H
-MOV RH,A
-MOV A,0eaH
-CALL __DELAYY1
-#line 285 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-MOV A,050h
-MOV __wdtc,A
-L22:
-L19:
 #line 290 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
-#pragma debug scope 3 2 ; 290 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
 CLR WDT
 L7:
 #line 100 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
@@ -358,13 +288,12 @@ JMP L6
 L5:
 #line 293 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
 JMP $
-LOCAL b0_1 DB 2 DUP(?)
 _main ENDP
 #line 294 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
 @send_one .SECTION 'CODE'
 PUBLIC _send_one
 _send_one PROC
-#pragma debug scope 17 1 ; 295 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
+#pragma debug scope 14 1 ; 295 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
 #line 295 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
 SET [028H].3
 #line 296 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
@@ -379,14 +308,14 @@ MOV A,02H
 MOV RH,A
 MOV A,0ebH
 CALL __DELAYY3
-L25:
+L19:
 RET
 _send_one ENDP
 #line 300 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
 @send_zero .SECTION 'CODE'
 PUBLIC _send_zero
 _send_zero PROC
-#pragma debug scope 18 1 ; 301 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
+#pragma debug scope 15 1 ; 301 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
 #line 301 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
 SET [028H].3
 #line 302 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
@@ -401,14 +330,14 @@ MOV A,02H
 MOV RH,A
 MOV A,0ebH
 CALL __DELAYY3
-L26:
+L20:
 RET
 _send_zero ENDP
 #line 306 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
 @send_sink .SECTION 'CODE'
 PUBLIC _send_sink
 _send_sink PROC
-#pragma debug scope 19 1 ; 307 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
+#pragma debug scope 16 1 ; 307 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
 #line 307 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
 SET [028H].3
 #line 308 "d:\work4\2_motor_general\5ch_general_rc\remote\pwm_test.c"
@@ -423,7 +352,7 @@ MOV A,02H
 MOV RH,A
 MOV A,0ebH
 CALL __DELAYY3
-L27:
+L21:
 RET
 _send_sink ENDP
 EXTERN STM_CompareMatchOutputUpdate0:BYTE

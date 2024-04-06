@@ -1,5 +1,5 @@
 #pragma debug scope 1 1
-#line 38 "C:\Users\111\Documents\HTK_Project\car2\HT8_TimeBase.c"
+#line 38 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_TimeBase.c"
 __stm0ah EQU [02dH]
 __stm0al EQU [02cH]
 __stm0dh EQU [02bH]
@@ -41,21 +41,21 @@ __iar0 EQU [00H]
 @TimeBase_Init .SECTION 'CODE'
 PUBLIC _TimeBase_Init
 _TimeBase_Init PROC
-#pragma debug scope 2 1 ; 48 "C:\Users\111\Documents\HTK_Project\car2\HT8_TimeBase.c"
-#pragma debug scope 3 2 ; 48 "C:\Users\111\Documents\HTK_Project\car2\HT8_TimeBase.c"
-#line 48 "C:\Users\111\Documents\HTK_Project\car2\HT8_TimeBase.c"
+#pragma debug scope 2 1 ; 48 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_TimeBase.c"
+#pragma debug scope 3 2 ; 48 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_TimeBase.c"
+#line 48 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_TimeBase.c"
 SET [01BH].6
-#pragma debug scope 4 2 ; 73 "C:\Users\111\Documents\HTK_Project\car2\HT8_TimeBase.c"
-#line 73 "C:\Users\111\Documents\HTK_Project\car2\HT8_TimeBase.c"
+#pragma debug scope 4 2 ; 73 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_TimeBase.c"
+#line 73 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_TimeBase.c"
 CLR [01BH].2
-#line 73 "C:\Users\111\Documents\HTK_Project\car2\HT8_TimeBase.c"
+#line 73 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_TimeBase.c"
 SET [01BH].1
-#line 73 "C:\Users\111\Documents\HTK_Project\car2\HT8_TimeBase.c"
+#line 73 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_TimeBase.c"
 SET [01BH].0
-#pragma debug scope 5 2 ; 118 "C:\Users\111\Documents\HTK_Project\car2\HT8_TimeBase.c"
-#line 118 "C:\Users\111\Documents\HTK_Project\car2\HT8_TimeBase.c"
+#pragma debug scope 5 2 ; 118 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_TimeBase.c"
+#line 118 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_TimeBase.c"
 SET [01BH].5
-#line 118 "C:\Users\111\Documents\HTK_Project\car2\HT8_TimeBase.c"
+#line 118 "d:\work4\2_motor_general\5ch_general_rc\control board\HT8_TimeBase.c"
 SET [01BH].4
 L5:
 RET

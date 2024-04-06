@@ -23,28 +23,28 @@ Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x
      00h     0014h     0014h    0001h      CODE               @@EEPROM_ISR (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_IT.OBJ)
      00h     0018h     0018h    0001h      CODE               @@ADC_ISR (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_IT.OBJ)
      00h     0019h     0026h    000eh      CODE               __DELAY (C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\MATH6.LIB)
-     00h     0027h     00eeh    00c8h      CODE               @MAIN (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
-     00h     00efh     00f9h    000bh      CODE               @send_one (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
-     00h     00fah     0104h    000bh      CODE               @send_zero (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
-     00h     0105h     010fh    000bh      CODE               @send_sink (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
-     00h     0110h     011ah    000bh      CODE               @STM_Init (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
-     00h     011bh     011eh    0004h      CODE               @STM_PwmOutputConfig (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
-     00h     011fh     014ah    002ch      CODE               @STM_PwmUpdate (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
-     00h     014bh     0158h    000eh      CODE               @STM_SinglePulseUpdate (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
-     00h     0159h     0166h    000eh      CODE               @STM_CounterModeConfig (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
-     00h     0167h     016bh    0005h      CODE               @STM_CompareMatchOutputConfig (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
-     00h     016ch     0179h    000eh      CODE               @STM_CompareMatchOutputUpdate (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
-     00h     0040h     0040h    0001h      DATA     12        CTMPDATA (C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\MATH6.LIB)
-     00h     0047h     0048h    0002h      DATA     0         @g_nCCRP (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
-     00h     0049h     004ah    0002h      DATA     0         @g_nCCRA (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
-     00h     004bh     004ch    0002h      DATA     0         @r (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
-     00h     004dh     004dh    0001h      DATA     0         @stop (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
+     00h     0027h     00bch    0096h      CODE               @MAIN (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
+     00h     00bdh     00c7h    000bh      CODE               @send_one (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
+     00h     00c8h     00d2h    000bh      CODE               @send_zero (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
+     00h     00d3h     00ddh    000bh      CODE               @send_sink (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
+     00h     00deh     00e8h    000bh      CODE               @STM_Init (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
+     00h     00e9h     00ech    0004h      CODE               @STM_PwmOutputConfig (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
+     00h     00edh     0118h    002ch      CODE               @STM_PwmUpdate (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
+     00h     0119h     0126h    000eh      CODE               @STM_SinglePulseUpdate (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
+     00h     0127h     0134h    000eh      CODE               @STM_CounterModeConfig (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
+     00h     0135h     0139h    0005h      CODE               @STM_CompareMatchOutputConfig (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
+     00h     013ah     0147h    000eh      CODE               @STM_CompareMatchOutputUpdate (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
+     00h     0040h     0040h    0001h      DATA     9         CTMPDATA (C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\MATH6.LIB)
+     00h     0046h     0047h    0002h      DATA     0         @g_nCCRP (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
+     00h     0048h     0049h    0002h      DATA     0         @g_nCCRA (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
+     00h     004ah     004bh    0002h      DATA     0         @r (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
+     00h     004ch     004ch    0001h      DATA     0         @stop (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
 
      Local Sections
 
      Bank    Start     End      Length     Class    AvgIns    Name
-     00h     0047h     0047h    0000h      LOCAL    0         @DUMMY (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
-     00h     0045h     0046h    0002h      LOCAL    2         _main (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
+     00h     0045h     0045h    0000h      LOCAL    0         @DUMMY (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
+     00h     0045h     0045h    0000h      LOCAL    0         _main (d:\work4\2_motor_general\5ch_general_rc\remote\PWM_TEST.OBJ)
      00h     0041h     0041h    0000h      LOCAL    0         _STM_Init (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
      00h     0041h     0041h    0000h      LOCAL    0         _STM_CompareMatchOutputConfig (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
      00h     0041h     0044h    0004h      LOCAL    2.75      _STM_CompareMatchOutputUpdate (d:\work4\2_motor_general\5ch_general_rc\remote\HT8_STM.OBJ)
@@ -66,27 +66,29 @@ Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x
      Address            Public by Name
      0040h              RH
      0041h              STM_CompareMatchOutputUpdate0
-     0167h              _STM_CompareMatchOutputConfig
-     016ch              _STM_CompareMatchOutputUpdate
-     0159h              _STM_CounterModeConfig
-     0110h              _STM_Init
-     011bh              _STM_PwmOutputConfig
-     011fh              _STM_PwmUpdate
+     0045h              STM_PwmUpdate0
+     0047h              STM_PwmUpdate1
+     0135h              _STM_CompareMatchOutputConfig
+     013ah              _STM_CompareMatchOutputUpdate
+     0127h              _STM_CounterModeConfig
+     00deh              _STM_Init
+     00e9h              _STM_PwmOutputConfig
+     00edh              _STM_PwmUpdate
      0005h              _STM_SinglePulseOutputConfig
-     014bh              _STM_SinglePulseUpdate
+     0119h              _STM_SinglePulseUpdate
      001eh              __DELAYY0
      001dh              __DELAYY1
      001ch              __DELAYY2
      001bh              __DELAYY3
      001ah              __DELAYY4
      0019h              __DELAYY5
-     0049h              _g_nCCRA
-     0047h              _g_nCCRP
-     004bh              _r
-     00efh              _send_one
-     0105h              _send_sink
-     00fah              _send_zero
-     004dh              _stop
+     0048h              _g_nCCRA
+     0046h              _g_nCCRP
+     004ah              _r
+     00bdh              _send_one
+     00d3h              _send_sink
+     00c8h              _send_zero
+     004ch              _stop
 
      Address            Public by Value
      0005h              _STM_SinglePulseOutputConfig
@@ -98,30 +100,32 @@ Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x
      001eh              __DELAYY0
      0040h              RH
      0041h              STM_CompareMatchOutputUpdate0
-     0047h              _g_nCCRP
-     0049h              _g_nCCRA
-     004bh              _r
-     004dh              _stop
-     00efh              _send_one
-     00fah              _send_zero
-     0105h              _send_sink
-     0110h              _STM_Init
-     011bh              _STM_PwmOutputConfig
-     011fh              _STM_PwmUpdate
-     014bh              _STM_SinglePulseUpdate
-     0159h              _STM_CounterModeConfig
-     0167h              _STM_CompareMatchOutputConfig
-     016ch              _STM_CompareMatchOutputUpdate
+     0045h              STM_PwmUpdate0
+     0046h              _g_nCCRP
+     0047h              STM_PwmUpdate1
+     0048h              _g_nCCRA
+     004ah              _r
+     004ch              _stop
+     00bdh              _send_one
+     00c8h              _send_zero
+     00d3h              _send_sink
+     00deh              _STM_Init
+     00e9h              _STM_PwmOutputConfig
+     00edh              _STM_PwmUpdate
+     0119h              _STM_SinglePulseUpdate
+     0127h              _STM_CounterModeConfig
+     0135h              _STM_CompareMatchOutputConfig
+     013ah              _STM_CompareMatchOutputUpdate
 
 
 ROM Usage Statistics
      Size      Used     Percentage
-     0400h     016eh    35%
+     0400h     013ch    30%
 
 RAM Usage Statistics
     Bank      Size      Used     Percentage
-     00h       0040h     000eh    21%
-     Total     0040h     000eh    21%
+     00h       0040h     000dh    20%
+     Total     0040h     000dh    20%
 
 Use Stack Count
 _main: 1
