@@ -33,13 +33,13 @@
 
 #include "HT8_MCU_IP_SEL.h"
 
-#define fl _pa6
+#define f _pa6
 #define h _pa7
-#define fr _pa0
-#define br _pa1
-#define bl _pa5
+#define right _pa0
+#define l _pa1
+#define b _pa5
 bool stop;
-int r;
+int r,fr,fl,br,bl,horn;
 u16	g_nCCRA ;		
 u16	g_nCCRP ;		
 
@@ -201,9 +201,14 @@ void main()
 		}
 		}
 		*/
+		if(!f){fr=1;fl=1;br=0;bl=0;}
+		if(!b){fr=0;fl=0;br=1;bl=1;}
+		if(!right){fr=1;fl=0;br=0;bl=1;}
+		if(!l){fr=0;fl=1;br=1;bl=0;}
+		horn=!h;
 		send_sink();
 		//send_sink();
-		if (!fr){
+		if (fr){
 			stop=0;
 			r=0;
 			send_one();
@@ -212,7 +217,7 @@ void main()
 				send_zero();
 				//send_one();
 				}
-		if (!fl){
+		if (fl){
 			stop=0;
 			r=0;
 			send_one();
@@ -221,7 +226,7 @@ void main()
 				send_zero();
 				//send_one();
 				}
-		if (!br){
+		if (br){
 			stop=0;
 			r=0;
 			send_one();
@@ -230,7 +235,7 @@ void main()
 				send_zero();
 				//send_one();
 				}
-		if (!bl){
+		if (bl){
 			stop=0;
 			r=0;
 			send_one();
@@ -239,7 +244,7 @@ void main()
 				send_zero();
 				//send_one();
 				}
-		if (!h){
+		if (horn){
 			stop=0;
 			r=0;
 			send_one();
@@ -248,7 +253,7 @@ void main()
 				send_zero();
 				//send_one();
 				}
-		
+		fr=0;fl=0;br=0;bl=0;
 		_delay(200000);
 		
 		/*
