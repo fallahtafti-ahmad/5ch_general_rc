@@ -8,10 +8,11 @@
 
 
 
-int i,j,p;
-int t0,t1,buzz,cnt;
+int p;
+int t0,t1,buzz,cnt,time,tdd,td;
 int diff;
-int fl,bit_in,fr,bl,br,h;
+bool fl,bit_in,fr,bl,br,h,dance;
+bool ddance;
 void turn_rightr();
 void turn_leftr();
 void turn_rightl();
@@ -20,7 +21,7 @@ void stopr();
 void stopl();
 void Led_on();
 void Led_off();
-void Buzzing();
+//void Buzzing();
 
 #pragma vector INT_ISR @ 0x04
 void INT_ISR(void)
@@ -67,6 +68,7 @@ void INT_ISR(void)
 					if(fr){turn_rightr();}else if(br){turn_leftr();}else{stopr();}
 					if(fl){turn_rightl();}else if(bl){turn_leftl();}else{stopl();}
 					if(h){buzz=1;}else{buzz=0;}
+					if(fr && br && fl && bl){dance=1;}else{dance=0;}
 					p=0;
 				}
 		}
@@ -96,9 +98,23 @@ void TB0_ISR(void)
 {
 	
 	if(buzz){
-		C3=~C3;
+		time++;
+		if (time>1000){C3=~C3;time=0;}
 		}else{
-			C3=0;}
+			time=0;}
+	/*if(dance){
+		td++;
+		if (td>2000){ddance=~ddance;td=0;}
+		}else{
+			td=0;}
+	if(ddance){
+		tdd++;
+		if(tdd<1500){stopl();stopr();C3=1;}
+		if(tdd==1500){C3=0;stopl();stopr();turn_leftl();turn_rightr();}
+		if(tdd==3000){stopl();stopr();turn_leftr();turn_leftl();}
+		if(tdd==4500){tdd=0;}
+		}else{
+			tdd=0;}*/
 	TB1_CLEAR_FLAG();
 
 }
@@ -161,16 +177,17 @@ void main()
 	EMI_ENABLE();
 	t0=0;
 	buzz=0;
-	turn_leftl();
+	/*turn_leftl();
 	_delay(263690);
 	turn_leftr();
 	_delay(263690);
 	turn_rightl();
 	_delay(263690);
 	turn_rightr();
-	_delay(263690);
+	_delay(263690);*/
 	stopr();
 	stopl();
+	ddance=0;
 	while(1){
 		cnt++;
 		if(cnt>20000)
@@ -180,6 +197,7 @@ void main()
 			C4=0;C5=0;
 		
 		buzz=0;
+		dance=0;
 		_delay(3050);
 		_halt();}
 		}
@@ -222,7 +240,7 @@ void Led_on(){
 void Led_off(){
 	C4=0;
 	}
-void Buzzing(){
+/*void Buzzing(){
 	/*for(i=0;i<1000;i++){
 		C3=1;
 		_delay(2000);
@@ -233,7 +251,7 @@ void Buzzing(){
 		C3=0;
 		_delay(2460);
 		}
-	*/
+	
 	for(i=0;i<300;i++){
 		C3=1;
 		_delay(1050);
@@ -247,4 +265,4 @@ void Buzzing(){
 		_delay(1420);
 		}
 
-}
+}*/

@@ -205,6 +205,7 @@ void main()
 		if(!b){fr=0;fl=0;br=1;bl=1;}
 		if(!right){fr=1;fl=0;br=0;bl=1;}
 		if(!l){fr=0;fl=1;br=1;bl=0;}
+		if(!l && !right){fr=1;fl=1;br=1;bl=1;}
 		horn=!h;
 		send_sink();
 		//send_sink();

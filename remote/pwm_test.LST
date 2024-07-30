@@ -301,386 +301,425 @@
  207  00B8  1F02        CLR [02H]
  207  00B9              L15:
 
-; 208: 		horn=!h;
- 208  00B9  3F94        SZ [014H].7
- 208  00BA  2800     R  JMP L18
- 208  00BB  0F01        MOV A,01h
- 208  00BC  0080     R  MOV CR1,A
- 208  00BD  2800     R  JMP L19
+; 208: 		if(!l && !right){fr=1;fl=1;br=1;bl=1;}
+ 208  00B9  3C94        SZ [014H].1
+ 208  00BA  2800     R  JMP L17
+ 208  00BB  3C14        SZ [014H].0
+ 208  00BC  2800     R  JMP L17
+ 208  00BD  0F00     R  MOV A,BANK _fr
 "File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 6 
 
- 208  00BE              L18:
- 208  00BE  1F00     R  CLR CR1
- 208  00BF              L19:
- 208  00BF  0F00     R  MOV A,BANK _horn
- 208  00C0  0084        MOV [04H],A
- 208  00C1  0F00     R  MOV A,OFFSET _horn
- 208  00C2  0083        MOV [03H],A
- 208  00C3  0700     R  MOV A,CR1
- 208  00C4  0082        MOV [02H],A
- 208  00C5  1483        INC [03H]
- 208  00C6  1F02        CLR [02H]
+ 208  00BE  0084        MOV [04H],A
+ 208  00BF  0F00     R  MOV A,OFFSET _fr
+ 208  00C0  0083        MOV [03H],A
+ 208  00C1  0F01        MOV A,01h
+ 208  00C2  0082        MOV [02H],A
+ 208  00C3  1483        INC [03H]
+ 208  00C4  1F02        CLR [02H]
+ 208  00C5  0F00     R  MOV A,BANK _fl
+ 208  00C6  0084        MOV [04H],A
+ 208  00C7  0F00     R  MOV A,OFFSET _fl
+ 208  00C8  0083        MOV [03H],A
+ 208  00C9  0F01        MOV A,01h
+ 208  00CA  0082        MOV [02H],A
+ 208  00CB  1483        INC [03H]
+ 208  00CC  1F02        CLR [02H]
+ 208  00CD  0F00     R  MOV A,BANK _br
+ 208  00CE  0084        MOV [04H],A
+ 208  00CF  0F00     R  MOV A,OFFSET _br
+ 208  00D0  0083        MOV [03H],A
+ 208  00D1  0F01        MOV A,01h
+ 208  00D2  0082        MOV [02H],A
+ 208  00D3  1483        INC [03H]
+ 208  00D4  1F02        CLR [02H]
+ 208  00D5  0F00     R  MOV A,BANK _bl
+ 208  00D6  0084        MOV [04H],A
+ 208  00D7  0F00     R  MOV A,OFFSET _bl
+ 208  00D8  0083        MOV [03H],A
+ 208  00D9  0F01        MOV A,01h
+ 208  00DA  0082        MOV [02H],A
+ 208  00DB  1483        INC [03H]
+ 208  00DC  1F02        CLR [02H]
+ 208  00DD              L17:
 
-; 209: 		send_sink();
- 209  00C7  2000     R  CALL _send_sink
+; 209: 		horn=!h;
+ 209  00DD  3F94        SZ [014H].7
+ 209  00DE  2800     R  JMP L20
+ 209  00DF  0F01        MOV A,01h
+ 209  00E0  0080     R  MOV CR1,A
+ 209  00E1  2800     R  JMP L21
+ 209  00E2              L20:
+ 209  00E2  1F00     R  CLR CR1
+ 209  00E3              L21:
+ 209  00E3  0F00     R  MOV A,BANK _horn
+ 209  00E4  0084        MOV [04H],A
+ 209  00E5  0F00     R  MOV A,OFFSET _horn
+ 209  00E6  0083        MOV [03H],A
+ 209  00E7  0700     R  MOV A,CR1
+ 209  00E8  0082        MOV [02H],A
+ 209  00E9  1483        INC [03H]
+ 209  00EA  1F02        CLR [02H]
 
-; 211: 		if (fr){
- 211  00C8  0F00     R  MOV A,BANK _fr
- 211  00C9  0084        MOV [04H],A
- 211  00CA  0F00     R  MOV A,OFFSET _fr
- 211  00CB  0083        MOV [03H],A
- 211  00CC  0702        MOV A,[02H]
- 211  00CD  0080     R  MOV b0_1,A
- 211  00CE  1483        INC [03H]
- 211  00CF  0702        MOV A,[02H]
- 211  00D0  0080     R  MOV b0_1[1],A
- 211  00D1  0700     R  MOV A,b0_1
- 211  00D2  0500     R  OR A,b0_1[1]
- 211  00D3  3D0A        SZ [0AH].2
- 211  00D4  2800     R  JMP L20
+; 210: 		send_sink();
+ 210  00EB  2000     R  CALL _send_sink
 
-; 212: 			stop=0;
- 212  00D5  0F00     R  MOV A,BANK _stop
- 212  00D6  0084        MOV [04H],A
- 212  00D7  0F00     R  MOV A,OFFSET _stop
- 212  00D8  0083        MOV [03H],A
- 212  00D9  1F02        CLR [02H]
-
-; 213: 			r=0;
- 213  00DA  0F00     R  MOV A,BANK _r
- 213  00DB  0084        MOV [04H],A
- 213  00DC  0F00     R  MOV A,OFFSET _r
- 213  00DD  0083        MOV [03H],A
- 213  00DE  1F02        CLR [02H]
- 213  00DF  1483        INC [03H]
- 213  00E0  1F02        CLR [02H]
-
-; 214: 			send_one();
- 214  00E1  2000     R  CALL _send_one
-
-; 216: 			}else{
- 216  00E2  2800     R  JMP L21
- 216  00E3              L20:
-
-; 217: 				send_zero();
- 217  00E3  2000     R  CALL _send_zero
- 217  00E4              L21:
-
-; 220: 		if (fl){
- 220  00E4  0F00     R  MOV A,BANK _fl
- 220  00E5  0084        MOV [04H],A
+; 212: 		if (fr){
+ 212  00EC  0F00     R  MOV A,BANK _fr
+ 212  00ED  0084        MOV [04H],A
+ 212  00EE  0F00     R  MOV A,OFFSET _fr
+ 212  00EF  0083        MOV [03H],A
+ 212  00F0  0702        MOV A,[02H]
 "File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 7 
 
- 220  00E6  0F00     R  MOV A,OFFSET _fl
- 220  00E7  0083        MOV [03H],A
- 220  00E8  0702        MOV A,[02H]
- 220  00E9  0080     R  MOV b0_1,A
- 220  00EA  1483        INC [03H]
- 220  00EB  0702        MOV A,[02H]
- 220  00EC  0080     R  MOV b0_1[1],A
- 220  00ED  0700     R  MOV A,b0_1
- 220  00EE  0500     R  OR A,b0_1[1]
- 220  00EF  3D0A        SZ [0AH].2
- 220  00F0  2800     R  JMP L22
+ 212  00F1  0080     R  MOV b0_1,A
+ 212  00F2  1483        INC [03H]
+ 212  00F3  0702        MOV A,[02H]
+ 212  00F4  0080     R  MOV b0_1[1],A
+ 212  00F5  0700     R  MOV A,b0_1
+ 212  00F6  0500     R  OR A,b0_1[1]
+ 212  00F7  3D0A        SZ [0AH].2
+ 212  00F8  2800     R  JMP L22
 
-; 221: 			stop=0;
- 221  00F1  0F00     R  MOV A,BANK _stop
- 221  00F2  0084        MOV [04H],A
- 221  00F3  0F00     R  MOV A,OFFSET _stop
- 221  00F4  0083        MOV [03H],A
- 221  00F5  1F02        CLR [02H]
+; 213: 			stop=0;
+ 213  00F9  0F00     R  MOV A,BANK _stop
+ 213  00FA  0084        MOV [04H],A
+ 213  00FB  0F00     R  MOV A,OFFSET _stop
+ 213  00FC  0083        MOV [03H],A
+ 213  00FD  1F02        CLR [02H]
 
-; 222: 			r=0;
- 222  00F6  0F00     R  MOV A,BANK _r
- 222  00F7  0084        MOV [04H],A
- 222  00F8  0F00     R  MOV A,OFFSET _r
- 222  00F9  0083        MOV [03H],A
- 222  00FA  1F02        CLR [02H]
- 222  00FB  1483        INC [03H]
- 222  00FC  1F02        CLR [02H]
+; 214: 			r=0;
+ 214  00FE  0F00     R  MOV A,BANK _r
+ 214  00FF  0084        MOV [04H],A
+ 214  0100  0F00     R  MOV A,OFFSET _r
+ 214  0101  0083        MOV [03H],A
+ 214  0102  1F02        CLR [02H]
+ 214  0103  1483        INC [03H]
+ 214  0104  1F02        CLR [02H]
 
-; 223: 			send_one();
- 223  00FD  2000     R  CALL _send_one
+; 215: 			send_one();
+ 215  0105  2000     R  CALL _send_one
 
-; 225: 			}else{
- 225  00FE  2800     R  JMP L23
- 225  00FF              L22:
+; 217: 			}else{
+ 217  0106  2800     R  JMP L23
+ 217  0107              L22:
 
-; 226: 				send_zero();
- 226  00FF  2000     R  CALL _send_zero
- 226  0100              L23:
+; 218: 				send_zero();
+ 218  0107  2000     R  CALL _send_zero
+ 218  0108              L23:
 
-; 229: 		if (br){
- 229  0100  0F00     R  MOV A,BANK _br
- 229  0101  0084        MOV [04H],A
- 229  0102  0F00     R  MOV A,OFFSET _br
- 229  0103  0083        MOV [03H],A
- 229  0104  0702        MOV A,[02H]
- 229  0105  0080     R  MOV b0_1,A
- 229  0106  1483        INC [03H]
- 229  0107  0702        MOV A,[02H]
- 229  0108  0080     R  MOV b0_1[1],A
- 229  0109  0700     R  MOV A,b0_1
- 229  010A  0500     R  OR A,b0_1[1]
- 229  010B  3D0A        SZ [0AH].2
- 229  010C  2800     R  JMP L24
+; 221: 		if (fl){
+ 221  0108  0F00     R  MOV A,BANK _fl
+ 221  0109  0084        MOV [04H],A
+ 221  010A  0F00     R  MOV A,OFFSET _fl
+ 221  010B  0083        MOV [03H],A
+ 221  010C  0702        MOV A,[02H]
+ 221  010D  0080     R  MOV b0_1,A
+ 221  010E  1483        INC [03H]
+ 221  010F  0702        MOV A,[02H]
+ 221  0110  0080     R  MOV b0_1[1],A
+ 221  0111  0700     R  MOV A,b0_1
+ 221  0112  0500     R  OR A,b0_1[1]
+ 221  0113  3D0A        SZ [0AH].2
+ 221  0114  2800     R  JMP L24
 
-; 230: 			stop=0;
- 230  010D  0F00     R  MOV A,BANK _stop
- 230  010E  0084        MOV [04H],A
- 230  010F  0F00     R  MOV A,OFFSET _stop
- 230  0110  0083        MOV [03H],A
- 230  0111  1F02        CLR [02H]
+; 222: 			stop=0;
+ 222  0115  0F00     R  MOV A,BANK _stop
+ 222  0116  0084        MOV [04H],A
+ 222  0117  0F00     R  MOV A,OFFSET _stop
+ 222  0118  0083        MOV [03H],A
+ 222  0119  1F02        CLR [02H]
+
+; 223: 			r=0;
+ 223  011A  0F00     R  MOV A,BANK _r
 "File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 8 
 
+ 223  011B  0084        MOV [04H],A
+ 223  011C  0F00     R  MOV A,OFFSET _r
+ 223  011D  0083        MOV [03H],A
+ 223  011E  1F02        CLR [02H]
+ 223  011F  1483        INC [03H]
+ 223  0120  1F02        CLR [02H]
 
-; 231: 			r=0;
- 231  0112  0F00     R  MOV A,BANK _r
- 231  0113  0084        MOV [04H],A
- 231  0114  0F00     R  MOV A,OFFSET _r
- 231  0115  0083        MOV [03H],A
- 231  0116  1F02        CLR [02H]
- 231  0117  1483        INC [03H]
- 231  0118  1F02        CLR [02H]
+; 224: 			send_one();
+ 224  0121  2000     R  CALL _send_one
 
-; 232: 			send_one();
- 232  0119  2000     R  CALL _send_one
+; 226: 			}else{
+ 226  0122  2800     R  JMP L25
+ 226  0123              L24:
 
-; 234: 			}else{
- 234  011A  2800     R  JMP L25
- 234  011B              L24:
+; 227: 				send_zero();
+ 227  0123  2000     R  CALL _send_zero
+ 227  0124              L25:
 
-; 235: 				send_zero();
- 235  011B  2000     R  CALL _send_zero
- 235  011C              L25:
+; 230: 		if (br){
+ 230  0124  0F00     R  MOV A,BANK _br
+ 230  0125  0084        MOV [04H],A
+ 230  0126  0F00     R  MOV A,OFFSET _br
+ 230  0127  0083        MOV [03H],A
+ 230  0128  0702        MOV A,[02H]
+ 230  0129  0080     R  MOV b0_1,A
+ 230  012A  1483        INC [03H]
+ 230  012B  0702        MOV A,[02H]
+ 230  012C  0080     R  MOV b0_1[1],A
+ 230  012D  0700     R  MOV A,b0_1
+ 230  012E  0500     R  OR A,b0_1[1]
+ 230  012F  3D0A        SZ [0AH].2
+ 230  0130  2800     R  JMP L26
 
-; 238: 		if (bl){
- 238  011C  0F00     R  MOV A,BANK _bl
- 238  011D  0084        MOV [04H],A
- 238  011E  0F00     R  MOV A,OFFSET _bl
- 238  011F  0083        MOV [03H],A
- 238  0120  0702        MOV A,[02H]
- 238  0121  0080     R  MOV b0_1,A
- 238  0122  1483        INC [03H]
- 238  0123  0702        MOV A,[02H]
- 238  0124  0080     R  MOV b0_1[1],A
- 238  0125  0700     R  MOV A,b0_1
- 238  0126  0500     R  OR A,b0_1[1]
- 238  0127  3D0A        SZ [0AH].2
- 238  0128  2800     R  JMP L26
+; 231: 			stop=0;
+ 231  0131  0F00     R  MOV A,BANK _stop
+ 231  0132  0084        MOV [04H],A
+ 231  0133  0F00     R  MOV A,OFFSET _stop
+ 231  0134  0083        MOV [03H],A
+ 231  0135  1F02        CLR [02H]
 
-; 239: 			stop=0;
- 239  0129  0F00     R  MOV A,BANK _stop
- 239  012A  0084        MOV [04H],A
- 239  012B  0F00     R  MOV A,OFFSET _stop
- 239  012C  0083        MOV [03H],A
- 239  012D  1F02        CLR [02H]
+; 232: 			r=0;
+ 232  0136  0F00     R  MOV A,BANK _r
+ 232  0137  0084        MOV [04H],A
+ 232  0138  0F00     R  MOV A,OFFSET _r
+ 232  0139  0083        MOV [03H],A
+ 232  013A  1F02        CLR [02H]
+ 232  013B  1483        INC [03H]
+ 232  013C  1F02        CLR [02H]
 
-; 240: 			r=0;
- 240  012E  0F00     R  MOV A,BANK _r
- 240  012F  0084        MOV [04H],A
- 240  0130  0F00     R  MOV A,OFFSET _r
- 240  0131  0083        MOV [03H],A
- 240  0132  1F02        CLR [02H]
- 240  0133  1483        INC [03H]
- 240  0134  1F02        CLR [02H]
+; 233: 			send_one();
+ 233  013D  2000     R  CALL _send_one
 
-; 241: 			send_one();
- 241  0135  2000     R  CALL _send_one
+; 235: 			}else{
+ 235  013E  2800     R  JMP L27
+ 235  013F              L26:
 
-; 243: 			}else{
- 243  0136  2800     R  JMP L27
- 243  0137              L26:
+; 236: 				send_zero();
+ 236  013F  2000     R  CALL _send_zero
+ 236  0140              L27:
 
-; 244: 				send_zero();
+; 239: 		if (bl){
 "File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 9 
 
- 244  0137  2000     R  CALL _send_zero
- 244  0138              L27:
+ 239  0140  0F00     R  MOV A,BANK _bl
+ 239  0141  0084        MOV [04H],A
+ 239  0142  0F00     R  MOV A,OFFSET _bl
+ 239  0143  0083        MOV [03H],A
+ 239  0144  0702        MOV A,[02H]
+ 239  0145  0080     R  MOV b0_1,A
+ 239  0146  1483        INC [03H]
+ 239  0147  0702        MOV A,[02H]
+ 239  0148  0080     R  MOV b0_1[1],A
+ 239  0149  0700     R  MOV A,b0_1
+ 239  014A  0500     R  OR A,b0_1[1]
+ 239  014B  3D0A        SZ [0AH].2
+ 239  014C  2800     R  JMP L28
 
-; 247: 		if (horn){
- 247  0138  0F00     R  MOV A,BANK _horn
- 247  0139  0084        MOV [04H],A
- 247  013A  0F00     R  MOV A,OFFSET _horn
- 247  013B  0083        MOV [03H],A
- 247  013C  0702        MOV A,[02H]
- 247  013D  0080     R  MOV b0_1,A
- 247  013E  1483        INC [03H]
- 247  013F  0702        MOV A,[02H]
- 247  0140  0080     R  MOV b0_1[1],A
- 247  0141  0700     R  MOV A,b0_1
- 247  0142  0500     R  OR A,b0_1[1]
- 247  0143  3D0A        SZ [0AH].2
- 247  0144  2800     R  JMP L28
+; 240: 			stop=0;
+ 240  014D  0F00     R  MOV A,BANK _stop
+ 240  014E  0084        MOV [04H],A
+ 240  014F  0F00     R  MOV A,OFFSET _stop
+ 240  0150  0083        MOV [03H],A
+ 240  0151  1F02        CLR [02H]
 
-; 248: 			stop=0;
- 248  0145  0F00     R  MOV A,BANK _stop
- 248  0146  0084        MOV [04H],A
- 248  0147  0F00     R  MOV A,OFFSET _stop
- 248  0148  0083        MOV [03H],A
- 248  0149  1F02        CLR [02H]
+; 241: 			r=0;
+ 241  0152  0F00     R  MOV A,BANK _r
+ 241  0153  0084        MOV [04H],A
+ 241  0154  0F00     R  MOV A,OFFSET _r
+ 241  0155  0083        MOV [03H],A
+ 241  0156  1F02        CLR [02H]
+ 241  0157  1483        INC [03H]
+ 241  0158  1F02        CLR [02H]
 
-; 249: 			r=0;
- 249  014A  0F00     R  MOV A,BANK _r
- 249  014B  0084        MOV [04H],A
- 249  014C  0F00     R  MOV A,OFFSET _r
- 249  014D  0083        MOV [03H],A
- 249  014E  1F02        CLR [02H]
- 249  014F  1483        INC [03H]
- 249  0150  1F02        CLR [02H]
+; 242: 			send_one();
+ 242  0159  2000     R  CALL _send_one
 
-; 250: 			send_one();
- 250  0151  2000     R  CALL _send_one
+; 244: 			}else{
+ 244  015A  2800     R  JMP L29
+ 244  015B              L28:
 
-; 252: 			}else{
- 252  0152  2800     R  JMP L29
- 252  0153              L28:
+; 245: 				send_zero();
+ 245  015B  2000     R  CALL _send_zero
+ 245  015C              L29:
 
-; 253: 				send_zero();
- 253  0153  2000     R  CALL _send_zero
- 253  0154              L29:
+; 248: 		if (horn){
+ 248  015C  0F00     R  MOV A,BANK _horn
+ 248  015D  0084        MOV [04H],A
+ 248  015E  0F00     R  MOV A,OFFSET _horn
+ 248  015F  0083        MOV [03H],A
+ 248  0160  0702        MOV A,[02H]
+ 248  0161  0080     R  MOV b0_1,A
+ 248  0162  1483        INC [03H]
+ 248  0163  0702        MOV A,[02H]
+ 248  0164  0080     R  MOV b0_1[1],A
+ 248  0165  0700     R  MOV A,b0_1
+ 248  0166  0500     R  OR A,b0_1[1]
+ 248  0167  3D0A        SZ [0AH].2
+ 248  0168  2800     R  JMP L30
 
-; 256: 		fr=0;fl=0;br=0;bl=0;
- 256  0154  0F00     R  MOV A,BANK _fr
- 256  0155  0084        MOV [04H],A
- 256  0156  0F00     R  MOV A,OFFSET _fr
- 256  0157  0083        MOV [03H],A
- 256  0158  1F02        CLR [02H]
- 256  0159  1483        INC [03H]
- 256  015A  1F02        CLR [02H]
- 256  015B  0F00     R  MOV A,BANK _fl
- 256  015C  0084        MOV [04H],A
- 256  015D  0F00     R  MOV A,OFFSET _fl
- 256  015E  0083        MOV [03H],A
- 256  015F  1F02        CLR [02H]
- 256  0160  1483        INC [03H]
- 256  0161  1F02        CLR [02H]
+; 249: 			stop=0;
+ 249  0169  0F00     R  MOV A,BANK _stop
+ 249  016A  0084        MOV [04H],A
+ 249  016B  0F00     R  MOV A,OFFSET _stop
 "File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 10 
 
- 256  0162  0F00     R  MOV A,BANK _br
- 256  0163  0084        MOV [04H],A
- 256  0164  0F00     R  MOV A,OFFSET _br
- 256  0165  0083        MOV [03H],A
- 256  0166  1F02        CLR [02H]
- 256  0167  1483        INC [03H]
- 256  0168  1F02        CLR [02H]
- 256  0169  0F00     R  MOV A,BANK _bl
- 256  016A  0084        MOV [04H],A
- 256  016B  0F00     R  MOV A,OFFSET _bl
- 256  016C  0083        MOV [03H],A
- 256  016D  1F02        CLR [02H]
- 256  016E  1483        INC [03H]
- 256  016F  1F02        CLR [02H]
+ 249  016C  0083        MOV [03H],A
+ 249  016D  1F02        CLR [02H]
 
-; 257: 		_delay(200000);
- 257  0170  0FC2        MOV A,0c2H
- 257  0171  0080     E  MOV RH,A
- 257  0172  0FED        MOV A,0edH
- 257  0173  2000     E  CALL __DELAYY3
+; 250: 			r=0;
+ 250  016E  0F00     R  MOV A,BANK _r
+ 250  016F  0084        MOV [04H],A
+ 250  0170  0F00     R  MOV A,OFFSET _r
+ 250  0171  0083        MOV [03H],A
+ 250  0172  1F02        CLR [02H]
+ 250  0173  1483        INC [03H]
+ 250  0174  1F02        CLR [02H]
 
-; 295: 		_clrwdt();
- 295  0174  0001        CLR WDT
- 295  0175              L7:
+; 251: 			send_one();
+ 251  0175  2000     R  CALL _send_one
 
-; 100: 	while(1)
- 100  0175  2800     R  JMP L6
- 100  0176              L5:
+; 253: 			}else{
+ 253  0176  2800     R  JMP L31
+ 253  0177              L30:
 
-; 298: }
- 298  0176  2800     R  JMP $
- 298  0000  0002[       LOCAL b0_1 DB 2 DUP(?)
-            00
-            ]
- 298  0002  00          LOCAL CR1 DB ? ; 17
- 298  0177              _main ENDP
+; 254: 				send_zero();
+ 254  0177  2000     R  CALL _send_zero
+ 254  0178              L31:
 
-; 299: void send_one(void){
- 299  0000              @send_one .SECTION 'CODE'
- 299  0000              PUBLIC _send_one
- 299  0000              _send_one PROC
+; 257: 		fr=0;fl=0;br=0;bl=0;
+ 257  0178  0F00     R  MOV A,BANK _fr
+ 257  0179  0084        MOV [04H],A
+ 257  017A  0F00     R  MOV A,OFFSET _fr
+ 257  017B  0083        MOV [03H],A
+ 257  017C  1F02        CLR [02H]
+ 257  017D  1483        INC [03H]
+ 257  017E  1F02        CLR [02H]
+ 257  017F  0F00     R  MOV A,BANK _fl
+ 257  0180  0084        MOV [04H],A
+ 257  0181  0F00     R  MOV A,OFFSET _fl
+ 257  0182  0083        MOV [03H],A
+ 257  0183  1F02        CLR [02H]
+ 257  0184  1483        INC [03H]
+ 257  0185  1F02        CLR [02H]
+ 257  0186  0F00     R  MOV A,BANK _br
+ 257  0187  0084        MOV [04H],A
+ 257  0188  0F00     R  MOV A,OFFSET _br
+ 257  0189  0083        MOV [03H],A
+ 257  018A  1F02        CLR [02H]
+ 257  018B  1483        INC [03H]
+ 257  018C  1F02        CLR [02H]
+ 257  018D  0F00     R  MOV A,BANK _bl
+ 257  018E  0084        MOV [04H],A
+ 257  018F  0F00     R  MOV A,OFFSET _bl
+ 257  0190  0083        MOV [03H],A
+ 257  0191  1F02        CLR [02H]
+ 257  0192  1483        INC [03H]
+ 257  0193  1F02        CLR [02H]
 
-; 300: 		STM_ENABLE();
- 300  0000  31A8        SET [028H].3
+; 258: 		_delay(200000);
+ 258  0194  0FC2        MOV A,0c2H
+ 258  0195  0080     E  MOV RH,A
+ 258  0196  0FED        MOV A,0edH
+ 258  0197  2000     E  CALL __DELAYY3
 
-; 301: 		_delay(13000);
- 301  0001  0F0C        MOV A,0cH
- 301  0002  0080     E  MOV RH,A
- 301  0003  0FAA        MOV A,0aaH
- 301  0004  2000     E  CALL __DELAYY3
-
-; 302: 		STM_DISABLE();
- 302  0005  35A8        CLR [028H].3
-
-; 303: 		_delay(3000);
- 303  0006  0F02        MOV A,02H
- 303  0007  0080     E  MOV RH,A
- 303  0008  0FEB        MOV A,0ebH
- 303  0009  2000     E  CALL __DELAYY3
- 303  000A              L30:
+; 296: 		_clrwdt();
 "File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 11 
 
- 303  000A  0003        RET
- 303  000B              _send_one ENDP
+ 296  0198  0001        CLR WDT
+ 296  0199              L7:
 
-; 305: void send_zero(void){
- 305  0000              @send_zero .SECTION 'CODE'
- 305  0000              PUBLIC _send_zero
- 305  0000              _send_zero PROC
+; 100: 	while(1)
+ 100  0199  2800     R  JMP L6
+ 100  019A              L5:
 
-; 306: 		STM_ENABLE();
- 306  0000  31A8        SET [028H].3
+; 299: }
+ 299  019A  2800     R  JMP $
+ 299  0000  0002[       LOCAL b0_1 DB 2 DUP(?)
+            00
+            ]
+ 299  0002  00          LOCAL CR1 DB ? ; 19
+ 299  019B              _main ENDP
 
-; 307: 		_delay(8000);
- 307  0001  0F07        MOV A,07H
- 307  0002  0080     E  MOV RH,A
- 307  0003  0FCB        MOV A,0cbH
- 307  0004  2000     E  CALL __DELAYY1
+; 300: void send_one(void){
+ 300  0000              @send_one .SECTION 'CODE'
+ 300  0000              PUBLIC _send_one
+ 300  0000              _send_one PROC
 
-; 308: 		STM_DISABLE();
- 308  0005  35A8        CLR [028H].3
+; 301: 		STM_ENABLE();
+ 301  0000  31A8        SET [028H].3
 
-; 309: 		_delay(3000);
- 309  0006  0F02        MOV A,02H
- 309  0007  0080     E  MOV RH,A
- 309  0008  0FEB        MOV A,0ebH
- 309  0009  2000     E  CALL __DELAYY3
- 309  000A              L31:
- 309  000A  0003        RET
- 309  000B              _send_zero ENDP
+; 302: 		_delay(13000);
+ 302  0001  0F0C        MOV A,0cH
+ 302  0002  0080     E  MOV RH,A
+ 302  0003  0FAA        MOV A,0aaH
+ 302  0004  2000     E  CALL __DELAYY3
 
-; 311: void send_sink(void){
- 311  0000              @send_sink .SECTION 'CODE'
- 311  0000              PUBLIC _send_sink
- 311  0000              _send_sink PROC
+; 303: 		STM_DISABLE();
+ 303  0005  35A8        CLR [028H].3
 
-; 312: 		STM_ENABLE();
- 312  0000  31A8        SET [028H].3
+; 304: 		_delay(3000);
+ 304  0006  0F02        MOV A,02H
+ 304  0007  0080     E  MOV RH,A
+ 304  0008  0FEB        MOV A,0ebH
+ 304  0009  2000     E  CALL __DELAYY3
+ 304  000A              L32:
+ 304  000A  0003        RET
+ 304  000B              _send_one ENDP
 
-; 313: 		_delay(4000);
- 313  0001  0F03        MOV A,03H
- 313  0002  0080     E  MOV RH,A
- 313  0003  0FE5        MOV A,0e5H
- 313  0004  2000     E  CALL __DELAYY1
+; 306: void send_zero(void){
+ 306  0000              @send_zero .SECTION 'CODE'
+ 306  0000              PUBLIC _send_zero
+ 306  0000              _send_zero PROC
 
-; 314: 		STM_DISABLE();
- 314  0005  35A8        CLR [028H].3
+; 307: 		STM_ENABLE();
+ 307  0000  31A8        SET [028H].3
 
-; 315: 		_delay(3000);
- 315  0006  0F02        MOV A,02H
- 315  0007  0080     E  MOV RH,A
- 315  0008  0FEB        MOV A,0ebH
- 315  0009  2000     E  CALL __DELAYY3
- 315  000A              L32:
- 315  000A  0003        RET
- 315  000B              _send_sink ENDP
- 315  000B              EXTERN STM_CompareMatchOutputUpdate0:BYTE
+; 308: 		_delay(8000);
+ 308  0001  0F07        MOV A,07H
+ 308  0002  0080     E  MOV RH,A
+ 308  0003  0FCB        MOV A,0cbH
+ 308  0004  2000     E  CALL __DELAYY1
+
+; 309: 		STM_DISABLE();
+ 309  0005  35A8        CLR [028H].3
+
+; 310: 		_delay(3000);
+ 310  0006  0F02        MOV A,02H
+"File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 12 
+
+ 310  0007  0080     E  MOV RH,A
+ 310  0008  0FEB        MOV A,0ebH
+ 310  0009  2000     E  CALL __DELAYY3
+ 310  000A              L33:
+ 310  000A  0003        RET
+ 310  000B              _send_zero ENDP
+
+; 312: void send_sink(void){
+ 312  0000              @send_sink .SECTION 'CODE'
+ 312  0000              PUBLIC _send_sink
+ 312  0000              _send_sink PROC
+
+; 313: 		STM_ENABLE();
+ 313  0000  31A8        SET [028H].3
+
+; 314: 		_delay(4000);
+ 314  0001  0F03        MOV A,03H
+ 314  0002  0080     E  MOV RH,A
+ 314  0003  0FE5        MOV A,0e5H
+ 314  0004  2000     E  CALL __DELAYY1
+
+; 315: 		STM_DISABLE();
+ 315  0005  35A8        CLR [028H].3
+
+; 316: 		_delay(3000);
+ 316  0006  0F02        MOV A,02H
+ 316  0007  0080     E  MOV RH,A
+ 316  0008  0FEB        MOV A,0ebH
+ 316  0009  2000     E  CALL __DELAYY3
+ 316  000A              L34:
+ 316  000A  0003        RET
+ 316  000B              _send_sink ENDP
+ 316  000B              EXTERN STM_CompareMatchOutputUpdate0:BYTE
 
 ;  44: u16	g_nCCRP ;		
   44  000B              PUBLIC _g_nCCRP
   44  0000              @g_nCCRP .SECTION 'DATA'
   44  0000  0002[       _g_nCCRP DB 2 DUP (?) ;g_nCCRP
-"File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 12 
-
             00
             ]
 
@@ -703,6 +742,8 @@
             00
             ]
   42  0002              PUBLIC _br
+"File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 13 
+
   42  0000              @br .SECTION 'DATA'
   42  0000  0002[       _br DB 2 DUP (?) ;br
             00
@@ -741,8 +782,6 @@
   56  0001              EXTERN __DELAYY1:NEAR
   56  0001              EXTERN __DELAYY2:NEAR
   56  0001              EXTERN __DELAYY3:NEAR
-"File: pwm_test.c    Holtek Cross-Assembler  Version 3.00      Page 13 
-
   56  0001              EXTERN __DELAYY4:NEAR
   56  0001              EXTERN __DELAYY5:NEAR
   56  0000              @CODE .SECTION AT 0 'CODE'

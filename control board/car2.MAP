@@ -31,43 +31,45 @@ Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x
      00h     0015h     0017h    0003h      CODE               @stopr (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
      00h     0018h     0018h    0001h      CODE               @@ADC_ISR (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_IT.OBJ)
      00h     0019h     0026h    000eh      CODE               __DELAY (C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\MATH6.LIB)
-     00h     0027h     01e2h    01bch      CODE               @INT_ISR (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     01e3h     0203h    0021h      CODE               @TB0_ISR (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     0204h     020eh    000bh      CODE               @TB1_ISR (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     020fh     028ah    007ch      CODE               @MAIN (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     028bh     028dh    0003h      CODE               @stopl (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     028eh     028fh    0002h      CODE               @Led_on (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     0290h     0291h    0002h      CODE               @Led_off (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     0292h     02eeh    005dh      CODE               @Buzzing (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     02efh     02f7h    0009h      CODE               @EXIT_Init (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_EXTI.OBJ)
-     00h     02f8h     02feh    0007h      CODE               @STM_Init (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
-     00h     02ffh     0302h    0004h      CODE               @STM_PwmOutputConfig (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
-     00h     0303h     032eh    002ch      CODE               @STM_PwmUpdate (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
-     00h     032fh     0331h    0003h      CODE               @STM_SinglePulseOutputConfig (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
-     00h     0332h     033fh    000eh      CODE               @STM_SinglePulseUpdate (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
-     00h     0340h     0365h    0026h      CODE               @STM_CounterModeConfig (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
-     00h     0366h     0368h    0003h      CODE               @STM_CompareMatchOutputConfig (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
-     00h     0369h     0391h    0029h      CODE               @STM_CompareMatchOutputUpdate (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
-     00h     0392h     0393h    0002h      CODE               @SysClockDivision_Init (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_SYS_CLOCK.OBJ)
-     00h     0394h     039ah    0007h      CODE               @TimeBase_Init (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_TIMEBASE.OBJ)
-     00h     039bh     039eh    0004h      CODE               @WDT_Init (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_WDT.OBJ)
-     00h     0040h     0043h    0004h      DATA     22        @INT_ISR (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     0044h     0045h    0002h      DATA     2         @TB0_ISR (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     0046h     0050h    000bh      DATA     2.7273    CTMPDATA (C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\MATH6.LIB)
-     00h     0056h     0057h    0002h      DATA     0         @h (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     0058h     0059h    0002h      DATA     0         @br (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     005ah     005bh    0002h      DATA     0         @bl (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     005ch     005dh    0002h      DATA     0         @fr (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     005eh     005fh    0002h      DATA     0         @bit_in (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     0060h     0061h    0002h      DATA     0         @fl (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     0062h     0063h    0002h      DATA     0         @diff (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     0064h     0065h    0002h      DATA     0         @cnt (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     0066h     0067h    0002h      DATA     0         @buzz (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     0068h     0069h    0002h      DATA     0         @t1 (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     006ah     006bh    0002h      DATA     0         @t0 (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     006ch     006dh    0002h      DATA     0         @p (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     006eh     006fh    0002h      DATA     0         @j (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     0070h     0071h    0002h      DATA     0         @i (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0027h     01cah    01a4h      CODE               @INT_ISR (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     01cbh     0215h    004bh      CODE               @TB0_ISR (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0216h     0220h    000bh      CODE               @TB1_ISR (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0221h     0292h    0072h      CODE               @MAIN (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0293h     0295h    0003h      CODE               @stopl (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0296h     0297h    0002h      CODE               @Led_on (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0298h     0299h    0002h      CODE               @Led_off (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     029ah     02a2h    0009h      CODE               @EXIT_Init (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_EXTI.OBJ)
+     00h     02a3h     02a9h    0007h      CODE               @STM_Init (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
+     00h     02aah     02adh    0004h      CODE               @STM_PwmOutputConfig (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
+     00h     02aeh     02d9h    002ch      CODE               @STM_PwmUpdate (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
+     00h     02dah     02dch    0003h      CODE               @STM_SinglePulseOutputConfig (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
+     00h     02ddh     02eah    000eh      CODE               @STM_SinglePulseUpdate (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
+     00h     02ebh     0310h    0026h      CODE               @STM_CounterModeConfig (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
+     00h     0311h     0313h    0003h      CODE               @STM_CompareMatchOutputConfig (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
+     00h     0314h     033ch    0029h      CODE               @STM_CompareMatchOutputUpdate (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
+     00h     033dh     033eh    0002h      CODE               @SysClockDivision_Init (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_SYS_CLOCK.OBJ)
+     00h     033fh     0345h    0007h      CODE               @TimeBase_Init (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_TIMEBASE.OBJ)
+     00h     0346h     0349h    0004h      CODE               @WDT_Init (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_WDT.OBJ)
+     00h     0040h     0043h    0004h      DATA     14.5      @INT_ISR (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0044h     0045h    0002h      DATA     4         @TB0_ISR (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0046h     0050h    000bh      DATA     2         CTMPDATA (C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x\LIB\MATH6.LIB)
+     00h     0056h     0056h    0001h      DATA     0         @ddance (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0057h     0057h    0001h      DATA     0         @dance (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0058h     0058h    0001h      DATA     0         @h (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0059h     0059h    0001h      DATA     0         @br (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     005ah     005ah    0001h      DATA     0         @bl (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     005bh     005bh    0001h      DATA     0         @fr (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     005ch     005ch    0001h      DATA     0         @bit_in (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     005dh     005dh    0001h      DATA     0         @fl (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     005eh     005fh    0002h      DATA     0         @diff (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0060h     0061h    0002h      DATA     0         @td (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0062h     0063h    0002h      DATA     0         @tdd (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0064h     0065h    0002h      DATA     0         @time (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0066h     0067h    0002h      DATA     0         @cnt (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     0068h     0069h    0002h      DATA     0         @buzz (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     006ah     006bh    0002h      DATA     0         @t1 (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     006ch     006dh    0002h      DATA     0         @t0 (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
+     00h     006eh     006fh    0002h      DATA     0         @p (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
 
      Local Sections
 
@@ -93,7 +95,6 @@ Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x
      00h     0051h     0051h    0000h      ILOCAL   0         _TB1_ISR (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
      00h     0051h     0051h    0000h      ILOCAL   0         _Led_on (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
      00h     0051h     0051h    0000h      ILOCAL   0         _Led_off (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
-     00h     0051h     0052h    0002h      ILOCAL   4         _Buzzing (d:\work4\2_motor_general\5ch_general_rc\control board\CAR2.OBJ)
      00h     0051h     0051h    0000h      ILOCAL   0         _STM_PwmOutputConfig (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
      00h     0051h     0055h    0005h      ILOCAL   4.2       _STM_PwmUpdate (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
      00h     0051h     0051h    0000h      ILOCAL   0         _STM_SinglePulseOutputConfig (d:\work4\2_motor_general\5ch_general_rc\control board\HT8_STM.OBJ)
@@ -119,43 +120,45 @@ Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x
      004ch              V2S
      004fh              V3A
      0050h              V3S
-     0292h              _Buzzing
-     02efh              _EXIT_Init
-     0290h              _Led_off
-     028eh              _Led_on
-     0366h              _STM_CompareMatchOutputConfig
-     0369h              _STM_CompareMatchOutputUpdate
-     0340h              _STM_CounterModeConfig
-     02f8h              _STM_Init
-     02ffh              _STM_PwmOutputConfig
-     0303h              _STM_PwmUpdate
-     032fh              _STM_SinglePulseOutputConfig
-     0332h              _STM_SinglePulseUpdate
-     0392h              _SysClockDivision_Init
-     0394h              _TimeBase_Init
-     039bh              _WDT_Init
+     029ah              _EXIT_Init
+     0298h              _Led_off
+     0296h              _Led_on
+     0311h              _STM_CompareMatchOutputConfig
+     0314h              _STM_CompareMatchOutputUpdate
+     02ebh              _STM_CounterModeConfig
+     02a3h              _STM_Init
+     02aah              _STM_PwmOutputConfig
+     02aeh              _STM_PwmUpdate
+     02dah              _STM_SinglePulseOutputConfig
+     02ddh              _STM_SinglePulseUpdate
+     033dh              _SysClockDivision_Init
+     033fh              _TimeBase_Init
+     0346h              _WDT_Init
      001eh              __DELAYY0
      001dh              __DELAYY1
      001ch              __DELAYY2
      001bh              __DELAYY3
      001ah              __DELAYY4
      0019h              __DELAYY5
-     005eh              _bit_in
+     005ch              _bit_in
      005ah              _bl
-     0058h              _br
-     0066h              _buzz
-     0064h              _cnt
-     0062h              _diff
-     0060h              _fl
-     005ch              _fr
-     0056h              _h
-     0070h              _i
-     006eh              _j
-     006ch              _p
-     028bh              _stopl
+     0059h              _br
+     0068h              _buzz
+     0066h              _cnt
+     0057h              _dance
+     0056h              _ddance
+     005eh              _diff
+     005dh              _fl
+     005bh              _fr
+     0058h              _h
+     006eh              _p
+     0293h              _stopl
      0015h              _stopr
-     006ah              _t0
-     0068h              _t1
+     006ch              _t0
+     006ah              _t1
+     0060h              _td
+     0062h              _tdd
+     0064h              _time
      0011h              _turn_leftl
      0009h              _turn_leftr
      000dh              _turn_rightl
@@ -186,50 +189,51 @@ Input Library File: C:\Program Files\Holtek MCU Development Tools\HT-IDE3000V8.x
      0050h              V3S
      0053h              STM_PwmUpdate0
      0055h              STM_PwmUpdate1
-     0056h              _h
-     0058h              _br
+     0056h              _ddance
+     0057h              _dance
+     0058h              _h
+     0059h              _br
      005ah              _bl
-     005ch              _fr
-     005eh              _bit_in
-     0060h              _fl
-     0062h              _diff
-     0064h              _cnt
-     0066h              _buzz
-     0068h              _t1
-     006ah              _t0
-     006ch              _p
-     006eh              _j
-     0070h              _i
-     028bh              _stopl
-     028eh              _Led_on
-     0290h              _Led_off
-     0292h              _Buzzing
-     02efh              _EXIT_Init
-     02f8h              _STM_Init
-     02ffh              _STM_PwmOutputConfig
-     0303h              _STM_PwmUpdate
-     032fh              _STM_SinglePulseOutputConfig
-     0332h              _STM_SinglePulseUpdate
-     0340h              _STM_CounterModeConfig
-     0366h              _STM_CompareMatchOutputConfig
-     0369h              _STM_CompareMatchOutputUpdate
-     0392h              _SysClockDivision_Init
-     0394h              _TimeBase_Init
-     039bh              _WDT_Init
+     005bh              _fr
+     005ch              _bit_in
+     005dh              _fl
+     005eh              _diff
+     0060h              _td
+     0062h              _tdd
+     0064h              _time
+     0066h              _cnt
+     0068h              _buzz
+     006ah              _t1
+     006ch              _t0
+     006eh              _p
+     0293h              _stopl
+     0296h              _Led_on
+     0298h              _Led_off
+     029ah              _EXIT_Init
+     02a3h              _STM_Init
+     02aah              _STM_PwmOutputConfig
+     02aeh              _STM_PwmUpdate
+     02dah              _STM_SinglePulseOutputConfig
+     02ddh              _STM_SinglePulseUpdate
+     02ebh              _STM_CounterModeConfig
+     0311h              _STM_CompareMatchOutputConfig
+     0314h              _STM_CompareMatchOutputUpdate
+     033dh              _SysClockDivision_Init
+     033fh              _TimeBase_Init
+     0346h              _WDT_Init
 
 
 ROM Usage Statistics
      Size      Used     Percentage
-     0400h     039fh    90%
+     0400h     034ah    82%
 
 RAM Usage Statistics
     Bank      Size      Used     Percentage
-     00h       0040h     0032h    78%
-     Total     0040h     0032h    78%
+     00h       0040h     0030h    75%
+     Total     0040h     0030h    75%
 
 Use Stack Count
 _INT_ISR: 1
-_Buzzing: 0
 _main: 1
 
 Call Tree
@@ -240,17 +244,12 @@ Call Tree
         _turn_rightl (0)
         _turn_leftl (0)
         _stopl (0)
-    _Buzzing
     @DUMMY
         _main (0)
             _SysClockDivision_Init (1)
             _STM_Init (1)
             _TimeBase_Init (1)
             _EXIT_Init (1)
-            _turn_leftl (1)
-            _turn_leftr (1)
-            _turn_rightl (1)
-            _turn_rightr (1)
             _stopr (1)
             _stopl (1)
 
